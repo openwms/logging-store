@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html
-        xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+        xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
         layout:decorator="layout">
 <head>
     <title>Logging-Store</title>
 </head>
 <body>
-<h1 layout:fragment="header">Logging-Store</h1>
-
+<h1 layout:fragment="header">Welcome</h1>
 <div layout:fragment="content" class="container">
+    <p th:inline="text" class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">[[${#httpServletRequest.remoteUser}]]</a></p>
     <div class="well well-lg">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" class="btn btn-primary btn-md" value="Sign Out"/>
+        </form>
         <p><a href="app/index.html">Customer AngularJS App</a></p>
     </div>
 </div>

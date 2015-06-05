@@ -1,0 +1,15 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Maven
+log/
+target/
+.idea/
+*.iml
+/bin/
+/.DS_Store
+/global-groovy.log
+rebel.xml
+

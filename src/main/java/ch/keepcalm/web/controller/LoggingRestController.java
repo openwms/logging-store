@@ -39,11 +39,14 @@ public class LoggingRestController {
     @Autowired
     private LoggingStoreRepository repository;
 
+    // tag::contains[]
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity log(@Valid @RequestBody LoggingStore loggingStore) {
         repository.saveAndFlush(loggingStore);
         return new ResponseEntity(new EmptyJsonResponse(), HttpStatus.CREATED);
     }
+    // end::contains[]
+
 
     @RequestMapping(method = RequestMethod.GET)
     public List<LoggingStore> logs() {
@@ -54,5 +57,4 @@ public class LoggingRestController {
     @JsonSerialize
     private class EmptyJsonResponse {
     }
-
 }

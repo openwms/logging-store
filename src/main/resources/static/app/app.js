@@ -2,11 +2,6 @@
 
 var app = angular.module('myApp', ['ui.router', 'ngResource', 'myApp.controllers', 'myApp.services', 'hateoas', 'spring-data-rest']);
 
-/*
- app.config(function (HateoasInterceptorProvider) {
- HateoasInterceptorProvider.transformAllResponses();
- });*/
-
 app.config(function (HateoasInterfaceProvider) {
     HateoasInterfaceProvider.setHttpMethods({
         update: {
@@ -25,8 +20,3 @@ app.config(function (SpringDataRestAdapterProvider) {
         }
     });
 });
-/*
- app.config(function (HateoasInterfaceProvider) {
- HateoasInterfaceProvider.setLinksKey("related");
- // HateoasInterface will now search response data for links in a property called "related"
- });*/

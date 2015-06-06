@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Created by marcelwidmer on 25/05/15.
@@ -32,7 +33,7 @@ import javax.validation.Valid;
  * </pre>
  */
 @RestController
-@RequestMapping("/log")
+@RequestMapping("/services/rest/log")
 public class LoggingRestController {
 
     @Autowired
@@ -42,7 +43,11 @@ public class LoggingRestController {
     public ResponseEntity log(@Valid @RequestBody LoggingStore loggingStore) {
         repository.saveAndFlush(loggingStore);
         return new ResponseEntity(new EmptyJsonResponse(), HttpStatus.CREATED);
+    }
 
+    @RequestMapping(method = RequestMethod.GET)
+    public List<LoggingStore> logs() {
+        return repository.findAll();
     }
 
 

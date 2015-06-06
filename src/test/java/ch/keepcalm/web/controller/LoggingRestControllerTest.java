@@ -60,7 +60,7 @@ public class LoggingRestControllerTest {
         loggingStore.setClientApplikation("JunitApplicationID");
         loggingStore.setClientVersion("JUnitClientVersion");
         RestTemplate restTemplate = new RestTemplate();
-        String log = restTemplate.postForObject(base + "log", loggingStore, String.class);
+        String log = restTemplate.postForObject(base + "services/rest/log", loggingStore, String.class);
         assertNotNull(log);
     }
 

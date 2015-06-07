@@ -26,12 +26,35 @@ curl -X POST  -H "Accept: Application/json" -H "Content-Type: application/json" 
 }'
 ```
 
-# Start App with develpment profile
+# Start App with development profile
 ```
   java -jar  --spring.profiles.active=development target/
 ```
 
-# Shutdown 
+
+# Shutdown App on development environment
 ```
-  curl -X POST localhost:9000/shutdown
+  curl -X POST localhost:8080/shutdown
+```
+
+# Start App with test profile
+```
+  java -jar  --spring.profiles.active=test target/
+```
+
+# Start App with integration profile
+```
+  java -jar  --spring.profiles.active=integration target/
+```
+
+
+# Start App with preProduction profile
+```
+  java -jar  --spring.profiles.active=preproduction target/
+```
+
+
+# Start App with production profile
+```
+  java -jar  --spring.profiles.active=production target/
 ```

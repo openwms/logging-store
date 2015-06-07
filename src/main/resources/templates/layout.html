@@ -10,21 +10,10 @@
           href="../../css/custom.css"/>
 </head>
 <body>
-<div class="container">
-    <div class="navbar">
-        <div class="navbar-inner">
-            <a class="brand"
-               href="/">
-                Logging-Store
-            </a>
 
-        </div>
-    </div>
-    <h1 layout:fragment="header">Layout</h1>
 
-    <div layout:fragment="content">
-        Fake content
-    </div>
-</div>
+<div th:include="this :: content"/>
+
+
 </body>
 </html>

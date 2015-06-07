@@ -1,3 +1,20 @@
+html {
+
+}
+body {
+    padding-top: 50px;
+}
+
+.bgimg{
+    background: url(../images/bg.jpeg) no-repeat center center fixed transparent;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /*opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
 .button-link {
     background-color: transparent;
     border: none;
@@ -8,3 +25,4 @@
     color: #005580;
     text-decoration: underline
 }
+

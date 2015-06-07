@@ -6,8 +6,9 @@
     <title>Logging-Store</title>
 </head>
 <body>
-<h1 layout:fragment="header">Login</h1>
 
+
+<h1 layout:fragment="header">Please sign in</h1>
 <div layout:fragment="content" class="container">
     <div th:if="${param.error}">
         Invalid username and password.
@@ -15,21 +16,20 @@
     <div th:if="${param.logout}">
         You have been logged out.
     </div>
-    <form th:action="@{/login}" method="post">
+
+    <form th:action="@{/login}" method="post" class="form-signin">
             <div class="col-md-offset-5 col-md-3">
                 <div class="form-login">
                     <input type="text" name="username" id="userName" class="form-control input-sm chat-input" placeholder="username" />
                     <br></br>
                     <input type="text" name="password" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
                     <br></br>
-                    <div class="wrapper">
-                <span class="group-btn">
-                    <input type="submit" value="Sign In" class="btn btn-primary btn-md"/>
-                </span>
-                    </div>
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                 </div>
             </div>
     </form>
+
 </div>
 </body>
 </html>

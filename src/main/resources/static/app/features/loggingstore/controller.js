@@ -1,6 +1,13 @@
 angular.module('myApp.controllers', [])
     .controller('LoggingStoreController', function ($log, $scope, $http, LoggingStoreClient) {
         'use strict';
+
+        $scope.sortType     = 'id'; // set the default sort type
+        $scope.sortReverse  = false;  // set the default sort order
+        $scope.searchFish   = '';     // set the default search/filter term
+
+
+
         // GET ALL
         $scope.store = LoggingStoreClient.query(); //fetch all
         $scope.getAllRecords = function () {

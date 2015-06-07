@@ -10,14 +10,14 @@
     <div class="container" align="center">
 
         <h1><font color="#f0ffff">Please sign in</font> </h1>
-        <div th:if="${param.error == null}">
+        <div th:if="${param.error == null and param.logout == null}">
             &nbsp;
         </div>
         <div th:if="${param.error}">
            <font color="#bc8f8f" >Invalid username and password.</font>
         </div>
         <div th:if="${param.logout}">
-            You have been logged out.
+            <font color="#7fffd4">You have been logged out.</font>
         </div>
 
         <form login-page='@{/login}'

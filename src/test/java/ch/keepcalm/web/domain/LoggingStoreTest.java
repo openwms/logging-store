@@ -19,7 +19,7 @@ import static org.junit.Assert.fail;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = LoggingStoreApplication.class)
-@ActiveProfiles("test")
+@ActiveProfiles("junit")
 public class LoggingStoreTest {
 
     @Autowired

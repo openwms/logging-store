@@ -23,7 +23,7 @@ import static org.junit.Assert.assertNotNull;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = LoggingStoreApplication.class)
-@ActiveProfiles("test")
+@ActiveProfiles("junit")
 @WebAppConfiguration
 @IntegrationTest({"server.port=0"})
 public class LoggingRestControllerTest {

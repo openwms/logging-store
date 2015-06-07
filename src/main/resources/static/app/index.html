@@ -13,7 +13,7 @@
 <body ng-app="myApp" ng-controller="LoggingStoreController">
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="navbar-header">
-		<a class="navbar-brand" rel="home" href="/">Logging-Store</a>
+		<a class="navbar-brand" rel="home" href="#">Logging-Store</a>
 	</div>
 
 	<div class="collapse navbar-collapse">
@@ -61,10 +61,6 @@
 	<div class="text-left">
 		<!-- Info -->
 		<div class="alert alert-warning">
-			<p><b>{{getAllRecords()}}</b> logs found in the Logging-Store.</p>
-		</div>
-		<!-- Info -->
-		<div class="alert alert-warning">
 			<p><i>Sort Type:</i> {{ sortType }}</p>
 			<p><i>Sort Reverse:</i> {{ sortReverse }}</p>
 			<p><i>Search Query:</i> {{ searchLog }}</p>
@@ -78,21 +74,21 @@
 			<tr>
 				<td>
 					<a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse">
-						ID
+						<b>ID</b>
 						<span ng-show="sortType == 'id' && !sortReverse" class="fa fa-caret-down"></span>
 						<span ng-show="sortType == 'id' && sortReverse" class="fa fa-caret-up"></span>
 					</a>
 				</td>
 				<td>
 					<a href="#" ng-click="sortType = 'timestamp'; sortReverse = !sortReverse">
-						Timestamp
+						<b>Timestamp</b>
 						<span ng-show="sortType == 'timestamp' && !sortReverse" class="fa fa-caret-down"></span>
 						<span ng-show="sortType == 'timestamp' && sortReverse" class="fa fa-caret-up"></span>
 					</a>
 				</td>
 				<td>
 					<a href="#" ng-click="sortType = 'clientApplikation'; sortReverse = !sortReverse">
-						Applikation
+						<b>Applikation</b>
 						<span ng-show="sortType == 'clientApplikation' && !sortReverse" class="fa fa-caret-down"></span>
 						<span ng-show="sortType == 'clientApplikation' && sortReverse" class="fa fa-caret-up"></span>
 					</a>
@@ -106,42 +102,42 @@
 				</td>
 				<td>
 					<a href="#" ng-click="sortType = 'debugInformation'; sortReverse = !sortReverse">
-						Debug Information
+						<b>Debug Information</b>
 						<span ng-show="sortType == 'debugInformation' && !sortReverse" class="fa fa-caret-down"></span>
 						<span ng-show="sortType == 'debugInformation' && sortReverse" class="fa fa-caret-up"></span>
 					</a>
 				</td>
 				<td>
 					<a href="#" ng-click="sortType = 'faultCode'; sortReverse = !sortReverse">
-						Fault Code
+						<b>Fault Code</b>
 						<span ng-show="sortType == 'faultCode' && !sortReverse" class="fa fa-caret-down"></span>
 						<span ng-show="sortType == 'faultCode' && sortReverse" class="fa fa-caret-up"></span>
 					</a>
 				</td>
 				<td>
 					<a href="#" ng-click="sortType = 'faultMessage'; sortReverse = !sortReverse">
-						Fault Message
+						<b>Fault Message</b>
 						<span ng-show="sortType == 'faultMessage' && !sortReverse" class="fa fa-caret-down"></span>
 						<span ng-show="sortType == 'faultMessage' && sortReverse" class="fa fa-caret-up"></span>
 					</a>
 				</td>
 				<td>
 					<a href="#" ng-click="sortType = 'faultType'; sortReverse = !sortReverse">
-						Applikation
+						<b>Applikation</b>
 						<span ng-show="sortType == 'faultType' && !sortReverse" class="fa fa-caret-down"></span>
 						<span ng-show="sortType == 'faultType' && sortReverse" class="fa fa-caret-up"></span>
 					</a>
 				</td>
 				<td>
 					<a href="#" ng-click="sortType = 'severity'; sortReverse = !sortReverse">
-						Severity
+						<b>Severity</b>
 						<span ng-show="sortType == 'severity' && !sortReverse" class="fa fa-caret-down"></span>
 						<span ng-show="sortType == 'severity' && sortReverse" class="fa fa-caret-up"></span>
 					</a>
 				</td>
 				<td>
 					<a href="#" ng-click="sortType = 'correlationId'; sortReverse = !sortReverse">
-						Correlation ID
+						<b>Correlation ID</b>
 						<span ng-show="sortType == 'correlationId' && !sortReverse" class="fa fa-caret-down"></span>
 						<span ng-show="sortType == 'correlationId' && sortReverse" class="fa fa-caret-up"></span>
 					</a>

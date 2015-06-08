@@ -28,7 +28,7 @@ curl -X POST  -H "Accept: Application/json" -H "Content-Type: application/json" 
 
 # Start App with development profile
 ```
-  java -jar  --spring.profiles.active=development target/
+  java -jar  -Dspring.profiles.active=development target/
 ```
 
 
@@ -39,22 +39,22 @@ curl -X POST  -H "Accept: Application/json" -H "Content-Type: application/json" 
 
 # Start App with test profile
 ```
-  java -jar  --spring.profiles.active=test target/
+  java -jar  -Dspring.profiles.active=test target/
 ```
 
 # Start App with integration profile
 ```
-  java -jar  --spring.profiles.active=integration target/
+  java -jar  -Dspring.profiles.active=integration target/
 ```
 
 
 # Start App with preProduction profile
 ```
-  java -jar  --spring.profiles.active=preproduction target/
+  java -jar  -Dspring.profiles.active=preproduction target/
 ```
 
 
 # Start App with production profile
 ```
-  java -jar  --spring.profiles.active=production target/
+  java -jar  -Dspring.profiles.active=production target/
 ```

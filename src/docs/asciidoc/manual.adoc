@@ -12,7 +12,11 @@ This is a user manual for the _logging-store_ project.
 == Introduction
 
 _logging-store_ is a simple SPA logging service to write some SPA log files in a backend database.
-The application provide a Rest interface and also a log viewer based on Spring Repository and Spring Security.
+The application provide a Rest interface and also a AngularJS log viewer client to check your logs in the database.
+
+
+NOTE: This is amazing for a deployment you only have to copy the JAR file to your server and start it with the java -jar command.
+`
 
 == Build Application:
 === Default Profile
@@ -59,42 +63,6 @@ There are some Spring Profiles
 WARNING: $  curl -X POST localhost:8080/shutdown
 `
 
-
-
-== LogViewer UI:
-Login Page.
-
-=== Login
-[.thumb]
-image:../images/login.png[scaledwidth=30%]
-
-=== Logging-Store
-Log over view page.
-[.thumb]
-image:../images/logging-store.png[scaledwidth=30%]
-
-==== Query
-Search the store with query _app3_
-
-===== app3
-[.thumb]
-image:../images/logging-store-query-app3.png[scaledwidth=30%]
-
-===== ZIP
-Search the store with query _zip_
-[.thumb]
-image:../images/logging-store-query-zip.png[scaledwidth=30%]
-
-
-==== Sort
-Sort the store.
-
-===== version
-[.thumb]
-image:../images/logging-store-sort-version.png[scaledwidth=30%]
-
-
-
 == Source Code
 === RestController
 [source,java]
@@ -120,6 +88,29 @@ include::{sourcedir}/ch/keepcalm/web/controller/LoggingRestController.java[tags=
 
 
 
+
+
+== LogViewer UI:
+
+=== Login Page
+[.thumb]
+image:../images/login.png[scaledwidth=30%]
+
+=== Logging-Store
+[.thumb]
+image:../images/logging-store.png[scaledwidth=30%]
+
+==== Example query : _app3_
+[.thumb]
+image:../images/logging-store-query-app3.png[scaledwidth=30%]
+
+===== Example query : _zip_
+[.thumb]
+image:../images/logging-store-query-zip.png[scaledwidth=30%]
+
+==== Example sort : version
+[.thumb]
+image:../images/logging-store-sort-version.png[scaledwidth=30%]
 
 
 

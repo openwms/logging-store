@@ -9,8 +9,7 @@ create table users(
 
 create table authorities (
     username varchar2(50) not null,
-    authority varchar2(50) not null,
-    constraint fk_authorities_users foreign key(username) references users(username)
+    authority varchar2(50) not null
 );
 
 insert into users

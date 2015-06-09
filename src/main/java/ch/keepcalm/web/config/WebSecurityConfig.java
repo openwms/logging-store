@@ -39,14 +39,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().defaultSuccessUrl("/app/index.html");
     }
 
+
     @Autowired
-    protected void configureAuthenticationDatasource(AuthenticationManagerBuilder auth, Environment env) throws Exception {
-        if (env.acceptsProfiles("development" , "integration", "preproduction", "production")){
-            log.info("Setting up database authentication for development");
-            auth.jdbcAuthentication().dataSource(dataSource);
-        }else {
+    protected void configureDatabaseAuthenticationNoProfile(AuthenticationManagerBuilder auth, Environment env) throws Exception {
+        if (env.getActiveProfiles().length == 0){
             log.info("Setting up memory-based authentication for dev");
             auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
         }
     }
+
+    @Autowired
+    protected void configureDatabaseAuthentication(AuthenticationManagerBuilder auth, Environment env) throws Exception {
+        if (env.acceptsProfiles("test", "integration", "preproduction", "production")){
+            log.info("Setting up database authentication for development, test, integration, preproduction, production" );
+
+            auth.jdbcAuthentication()
+                    .dataSource(dataSource);
+
+        }
+    }
+
+
 }

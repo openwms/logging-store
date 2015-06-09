@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.sql.DataSource;
 
@@ -53,7 +54,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         if (env.acceptsProfiles("test", "integration", "preproduction", "production")){
             log.info("Setting up database authentication for development, test, integration, preproduction, production" );
 
-            auth.jdbcAuthentication()
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+            auth.jdbcAuthentication().passwordEncoder(passwordEncoder)
                     .dataSource(dataSource);
 
         }

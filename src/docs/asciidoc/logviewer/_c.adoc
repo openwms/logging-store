@@ -1,0 +1,7 @@
+content from _src/docs/asciidoc/logviewer/c.adoc_.
+
+
+== Images
+[.thumb]
+image:../images/logging-store.png[scaledwidth=75%]
+

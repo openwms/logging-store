@@ -73,90 +73,90 @@
 		<table class="table table-bordered table-striped">
 			<thead>
 			<tr>
-				<td>
+				<th>
 					<a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse">
 						<b>ID</b>
 						<span ng-show="sortType == 'id' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
 						<span ng-show="sortType == 'id' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
 					</a>
-				</td>
-				<td>
+				</th>
+				<th>
 					<a href="#" ng-click="sortType = 'timestamp'; sortReverse = !sortReverse">
 						<b>Timestamp</b>
 						<span ng-show="sortType == 'timestamp' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
 						<span ng-show="sortType == 'timestamp' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
 					</a>
-				</td>
-				<td>
+				</th>
+				<th>
 					<a href="#" ng-click="sortType = 'clientApplikation'; sortReverse = !sortReverse">
 						<b>Applikation</b>
 						<span ng-show="sortType == 'clientApplikation' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
 						<span ng-show="sortType == 'clientApplikation' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
 					</a>
-				</td>
-				<td>
+				</th>
+				<th>
 					<a href="#" ng-click="sortType = 'clientVersion'; sortReverse = !sortReverse">
 						Version
 						<span ng-show="sortType == 'clientVersion' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
 						<span ng-show="sortType == 'clientVersion' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
 					</a>
-				</td>
-				<td>
+				</th>
+				<th>
 					<a href="#" ng-click="sortType = 'debugInformation'; sortReverse = !sortReverse">
 						<b>Debug Information</b>
 						<span ng-show="sortType == 'debugInformation' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
 						<span ng-show="sortType == 'debugInformation' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
 					</a>
-				</td>
-				<td>
+				</th>
+				<th>
 					<a href="#" ng-click="sortType = 'faultCode'; sortReverse = !sortReverse">
 						<b>Fault Code</b>
 						<span ng-show="sortType == 'faultCode' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
 						<span ng-show="sortType == 'faultCode' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
 					</a>
-				</td>
-				<td>
+				</th>
+				<th>
 					<a href="#" ng-click="sortType = 'faultMessage'; sortReverse = !sortReverse">
 						<b>Fault Message</b>
 						<span ng-show="sortType == 'faultMessage' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
 						<span ng-show="sortType == 'faultMessage' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
 					</a>
-				</td>
-				<td>
+				</th>
+				<th>
 					<a href="#" ng-click="sortType = 'faultType'; sortReverse = !sortReverse">
 						<b>Fault Type</b>
 						<span ng-show="sortType == 'faultType' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
 						<span ng-show="sortType == 'faultType' && sortReverse" class="fa fa-caret-up"></span>
 					</a>
-				</td>
-				<td>
+				</th>
+				<th>
 					<a href="#" ng-click="sortType = 'severity'; sortReverse = !sortReverse">
 						<b>Severity</b>
 						<span ng-show="sortType == 'severity' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
 						<span ng-show="sortType == 'severity' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
 					</a>
-				</td>
-				<td>
+				</th>
+				<th>
 					<a href="#" ng-click="sortType = 'correlationId'; sortReverse = !sortReverse">
 						<b>Correlation ID</b>
 						<span ng-show="sortType == 'correlationId' && !sortReverse" class="glyphicon glyphicon-chevron-down	"></span>
 						<span ng-show="sortType == 'correlationId' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
 					</a>
-				</td>
+				</th>
 			</tr>
 			</thead>
 			<tbody>
 			<tr ng-repeat="log in store | orderBy:sortType:sortReverse | filter:searchLog">
-				<td>{{log.id}}</td>
-				<td>{{log.timestamp}}</td>
-				<td>{{log.clientApplikation}}</td>
-				<td>{{log.clientVersion}}</td>
-				<td>{{log.debugInformation}}</td>
-				<td>{{log.faultCode}}</td>
-				<td>{{log.faultMessage}}</td>
-				<td>{{log.faultType}}</td>
-				<td>{{log.severity}}</td>
-				<td>{{log.correlationId}}</td>
+				<td style="word-wrap: break-word;min-width: 40px;max-width: 50px;white-space:normal;">{{log.id}}</td>
+				<td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">{{log.timestamp}}</td>
+				<td style="word-wrap: break-word;min-width: 20px;max-width: 20px;white-space:normal;">{{log.clientApplikation}}</td>
+				<td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">{{log.clientVersion}}</td>
+				<td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">{{log.debugInformation}}</td>
+				<td style="word-wrap: break-word;min-width: 20px;max-width: 20px;white-space:normal;">{{log.faultCode}}</td>
+				<td style="word-wrap: break-word;min-width: 200px;max-width: 200px;white-space:normal;">{{log.faultMessage}}</td>
+				<td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">{{log.faultType}}</td>
+				<td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">{{log.severity}}</td>
+				<td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">{{log.correlationId}}</td>
 			</tr>
 			</tbody>
 		</table>

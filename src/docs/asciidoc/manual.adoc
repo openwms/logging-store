@@ -1,0 +1,72 @@
+== logging-store
+Marcel Widmer <marzelwidmer@gmail.com>
+2015-06-09
+:revnumber: {project-version}
+:example-caption!:
+ifndef::imagesdir[:imagesdir: images]
+ifndef::sourcedir[:sourcedir: ../java]
+
+----
+include::{asciidoctor-source}/logviewer/manual.adoc[]
+----
+
+This is a user manual for the _logging-store_ project.
+
+== Introduction
+
+_logging-store_ is a simple SPA logging service to write some SPA log files in a backend database.
+The application provide a Rest interface and also a log viewer based on Spring Repository and Spring Security.
+
+== Build Application:
+=== Default Profile
+ $ mvn package
+
+=== Oracle Database Profile
+ $ mvn package -Poracle
+
+
+== Source Code
+=== RestController
+[source,java]
+.RestController
+----
+include::{sourcedir}/ch/keepcalm/web/controller/LoggingRestController.java[tags=contains,indent=0]
+----
+
+
+
+
+
+
+
+
+
+
+
+
+== Attributes
+
+.Built-in
+asciidoctor-version:: {asciidoctor-version}
+safe-mode-name:: {safe-mode-name}
+docdir:: {docdir}
+docfile:: {docfile}
+imagesdir:: {imagesdir}
+
+.Custom
+project-version:: {project-version}
+sourcedir:: {sourcedir}
+default-endpoint-url:: http://localhost:8080/services/rest/log
+endpoint-url:: {endpoint-url}
+
+
+== Includes
+.include::logviewer/_manual.adoc[]
+====
+.include::logviewer/_b.adoc[]
+====
+include::logviewer/_b.adoc[]
+====
+
+WARNING: Includes can be tricky!
+`

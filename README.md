@@ -25,36 +25,49 @@ curl -X POST  -H "Accept: Application/json" -H "Content-Type: application/json" 
   "severity":"DEBUG"
 }'
 ```
-
-# Start App with development profile
+# built
 ```
-  java -jar  -Dspring.profiles.active=development target/
+mvn package
 ```
-
+# built with oracle databaase support
+```
+mvn package -Poracle
+```
+# Start App with default profile
+```
+  java -jar target/logging-store-0.0.1-SNAPSHOT.jar &
+```
 
 # Shutdown App on development environment
 ```
   curl -X POST localhost:8080/shutdown
 ```
 
+
+# Start App with development profile
+```
+  java -jar  -Dspring.profiles.active=development target/logging-store-0.0.1-SNAPSHOT.jar &
+```
+
+
 # Start App with test profile
 ```
-  java -jar  -Dspring.profiles.active=test target/
+  java -jar  -Dspring.profiles.active=test target/logging-store-0.0.1-SNAPSHOT.jar &
 ```
 
 # Start App with integration profile
 ```
-  java -jar  -Dspring.profiles.active=integration target/
+  java -jar  -Dspring.profiles.active=integration target/logging-store-0.0.1-SNAPSHOT.jar &
 ```
 
 
 # Start App with preProduction profile
 ```
-  java -jar  -Dspring.profiles.active=preproduction target/
+  java -jar  -Dspring.profiles.active=preproduction target/logging-store-0.0.1-SNAPSHOT.jar &
 ```
 
 
 # Start App with production profile
 ```
-  java -jar  -Dspring.profiles.active=production target/
+  java -jar  -Dspring.profiles.active=production target/logging-store-0.0.1-SNAPSHOT.jar &
 ```

@@ -1,0 +1,25 @@
+content from _src/docs/asciidoc/logviewer/manual.adoc_.
+
+
+== Login
+[.thumb]
+image:../images/login.png[scaledwidth=50%]
+
+== Logging-Store
+[.thumb]
+image:../images/logging-store.png[scaledwidth=50%]
+
+=== Query
+==== app3
+[.thumb]
+image:../images/logging-store-query-app3.png[scaledwidth=50%]
+
+==== ZIP
+[.thumb]
+image:../images/logging-store-query-zip.png[scaledwidth=50%]
+
+
+=== Sort
+==== version
+[.thumb]
+image:../images/logging-store-sort-version.png[scaledwidth=50%]

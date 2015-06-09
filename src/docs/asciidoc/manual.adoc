@@ -1,4 +1,4 @@
-== logging-store
+= Logging-Store
 Marcel Widmer <marzelwidmer@gmail.com>
 2015-06-09
 :revnumber: {project-version}
@@ -6,9 +6,6 @@ Marcel Widmer <marzelwidmer@gmail.com>
 ifndef::imagesdir[:imagesdir: images]
 ifndef::sourcedir[:sourcedir: ../java]
 
-----
-include::{asciidoctor-source}/logviewer/manual.adoc[]
-----
 
 This is a user manual for the _logging-store_ project.
 
@@ -24,6 +21,79 @@ The application provide a Rest interface and also a log viewer based on Spring R
 === Oracle Database Profile
  $ mvn package -Poracle
 
+== Start Application
+
+=== Default Profile
+ $ java -jar target/logging-store-0.0.1-SNAPSHOT.jar &
+
+There are some Spring Profiles
+
+=== Development Profile
+ $ java -jar -Dspring.profiles.active=development  target/logging-store-0.0.1-SNAPSHOT.jar &
+
+=== Profiles
+.Table -Dspring.profiles.active=
+|===
+|Profile | Environment
+
+|development
+|Development
+
+|test
+|Test
+
+|integration
+|Test
+
+|preproduction
+|PreProduction
+
+|production
+|Production
+|===
+
+
+
+== Shutdown the Application
+
+WARNING: $  curl -X POST localhost:8080/shutdown
+`
+
+
+
+== LogViewer UI:
+Login Page.
+
+=== Login
+[.thumb]
+image:../images/login.png[scaledwidth=30%]
+
+=== Logging-Store
+Log over view page.
+[.thumb]
+image:../images/logging-store.png[scaledwidth=30%]
+
+==== Query
+Search the store with query _app3_
+
+===== app3
+[.thumb]
+image:../images/logging-store-query-app3.png[scaledwidth=30%]
+
+===== ZIP
+Search the store with query _zip_
+[.thumb]
+image:../images/logging-store-query-zip.png[scaledwidth=30%]
+
+
+==== Sort
+Sort the store.
+
+===== version
+[.thumb]
+image:../images/logging-store-sort-version.png[scaledwidth=30%]
+
+
 
 == Source Code
 === RestController
@@ -34,6 +104,19 @@ include::{sourcedir}/ch/keepcalm/web/controller/LoggingRestController.java[tags=
 ----
 
 
+== Post a log Message
+===  Request
+ $ curl -X POST  -H "Accept: Application/json" -H "Content-Type: application/json" http://localhost:8080/services/rest/log -d '
+ {
+   "clientApplikation":"app3",
+   "clientVersion":"1.0.1",
+   "correlationId": "c861bb30-0ed1-11e5-b939-0800200c9a33",
+   "debugInformation":"Validation Service Module ",
+   "faultMessage":"Check Module.",
+   "faultCode":"289",
+   "faultType":"SYSTEM_SOFT_SCHEMA",
+   "severity":"WARNING"
+ }
 
 
 
@@ -56,17 +139,4 @@ imagesdir:: {imagesdir}
 .Custom
 project-version:: {project-version}
 sourcedir:: {sourcedir}
-default-endpoint-url:: http://localhost:8080/services/rest/log
 endpoint-url:: {endpoint-url}
-
-
-== Includes
-.include::logviewer/_manual.adoc[]
-====
-.include::logviewer/_b.adoc[]
-====
-include::logviewer/_b.adoc[]
-====
-
-WARNING: Includes can be tricky!
-`

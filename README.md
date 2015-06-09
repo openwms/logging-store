@@ -14,7 +14,7 @@
 
 # POST a Log Message
 ```
-curl -X POST  -H "Accept: Application/json" -H "Content-Type: application/json" http://localhost:8080/log -d '{
+curl -X POST  -H "Accept: Application/json" -H "Content-Type: application/json" http://localhost:8080/services/rest/log -d '{
   "clientApplikation":"SPA1",
   "clientVersion":"1.0.1",
   "correlationId": "11212",

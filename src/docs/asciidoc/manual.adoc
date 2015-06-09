@@ -86,6 +86,8 @@ include::{sourcedir}/ch/keepcalm/web/controller/LoggingRestController.java[tags=
    "severity":"WARNING"
  }
 
+[.thumb]
+image:../images/request-put-json.png[scaledwidth=30%]
 
 
 

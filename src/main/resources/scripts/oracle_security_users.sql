@@ -21,7 +21,9 @@ values
 insert into users
 (username, password, enabled)
 values
-('marcel', 'password', 1);
+('hksim', 'password', 1);
+
+
 
 insert into authorities
  (username, authority)
@@ -31,9 +33,9 @@ insert into authorities
  insert into authorities
  (username, authority)
  VALUES
- ('marcel','ROLE_ADMIN');
+ ('hkesq','ROLE_ADMIN');
 
  insert into authorities
  (username, authority)
  VALUES
- ('marcel', 'ROLE_USER');
+ ('hksim', 'ROLE_USER');

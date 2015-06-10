@@ -19,7 +19,10 @@ NOTE: This is amazing for a deployment you only have to copy the JAR file to you
 `
 
 == Build Application:
+There are some different profiles for different databases. From inMemory to PostgreSQL till Oracle.
+
 === Default Profile
+This profile support an inMemory database
  $ mvn package
 
 === Oracle Database Profile
@@ -28,11 +31,13 @@ NOTE: This is amazing for a deployment you only have to copy the JAR file to you
 == Start Application
 
 === Default Profile
+Start application with inMemory database.
  $ java -jar target/logging-store-0.0.1-SNAPSHOT.jar &
 
 There are some Spring Profiles
 
 === Development Profile
+This profile support a PostgreSQL database.
  $ java -jar -Dspring.profiles.active=development  target/logging-store-0.0.1-SNAPSHOT.jar &
 
 === Profiles

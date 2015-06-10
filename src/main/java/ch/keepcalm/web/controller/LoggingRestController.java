@@ -15,9 +15,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- * <p>
- * Created by marcelwidmer on 25/05/15.
- * <p/>
+ * <p> Created by marcelwidmer on 25/05/15. <p/>
  * <pre>
  *     <code>
  *         {

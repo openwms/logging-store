@@ -11,7 +11,6 @@
 [license-url]: LICENSE
 
 
-
 # POST a Log Message with curl
 ```
 curl -X POST  -H "Accept: Application/json" -H "Content-Type: application/json" http://localhost:8080/services/rest/log -d '{

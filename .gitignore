@@ -13,3 +13,5 @@ target/
 /global-groovy.log
 rebel.xml
 
+/src/main/resources/static/bower_components/
+/data

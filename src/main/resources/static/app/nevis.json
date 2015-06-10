@@ -1,0 +1,244 @@
+{
+  "roles": [
+    {
+      "name": "[[07-ADS0-BASE"
+    },
+    {
+      "name": "11-EMILY-BASE"
+    },
+    {
+      "name": "07-ADS0-PRI-HEL"
+    },
+    {
+      "name": "35-RACF-ESP1"
+    },
+    {
+      "name": "36-ONDEMAND-GERMAN"
+    },
+    {
+      "name": "38-IMANA-SVF"
+    },
+    {
+      "name": "17-SAP0-ESS"
+    },
+    {
+      "name": "47-SYRIUS-MAIN"
+    },
+    {
+      "name": "12-VPN-PANDEMIE"
+    },
+    {
+      "name": "83-SYRIUS-MAIN"
+    },
+    {
+      "name": "83-SYRIUS-ABFAG"
+    },
+    {
+      "name": "83-SYRIUS-SBIT"
+    },
+    {
+      "name": "55-EXCHG-TYP-USER"
+    },
+    {
+      "name": "35-RACF-ODMAXICH"
+    },
+    {
+      "name": "81-AUTH-SMS"
+    },
+    {
+      "name": "80-AUTH-SMS"
+    },
+    {
+      "name": "78-ECM-UCM_R_G_BAS_NORM_RW"
+    },
+    {
+      "name": "77-ECM-UCM_R_G_BAS_NORM_RW"
+    },
+    {
+      "name": "77-ECM-UCM_R_G_BAS_PERS_RW"
+    },
+    {
+      "name": "00-HEDIS-WF_EMP_RR"
+    },
+    {
+      "name": "00-HEDIS-WF_EMP_SW_WS"
+    },
+    {
+      "name": "00-HEDIS-WF_EMP_TICKET"
+    },
+    {
+      "name": "00-HEDIS-WF_EMP_ROLE_LIST"
+    },
+    {
+      "name": "77-ECM-EBOX_R_A_USE"
+    },
+    {
+      "name": "77-ECM-EBOX_R_A_ADMIN"
+    },
+    {
+      "name": "77-ECM-ESEARCH_R_A_USE"
+    },
+    {
+      "name": "78-ECM-ESEARCH_R_A_USE"
+    },
+    {
+      "name": "77-ECM-UCM_A_BASIS_RW"
+    },
+    {
+      "name": "78-ECM-UCM_A_BASIS_RW"
+    },
+    {
+      "name": "00-HEDIS-WF_FEEDBACK"
+    },
+    {
+      "name": "78-ECM-EDOSS_R_A_USE"
+    },
+    {
+      "name": "77-ECM-EDOSS_R_A_USE"
+    },
+    {
+      "name": "91-ALM-USER"
+    },
+    {
+      "name": "77-ECM-EBOX_R_A_PK_KDDE"
+    },
+    {
+      "name": "77-ECM-EBOX_R_A_PK_KDROMANDIE"
+    },
+    {
+      "name": "77-ECM-ESEARCH_R_A_EDIT_SEARCHPROFILE"
+    },
+    {
+      "name": "77-ECM-ESEARCH_R_A_UPLOAD"
+    },
+    {
+      "name": "77-ECM-EBOX_R_A_PK_KDTICINO"
+    },
+    {
+      "name": "77-ECM-ELS_R_A_USE"
+    },
+    {
+      "name": "103-IML-1_DEFAULT"
+    },
+    {
+      "name": "103-IML-5_GAST"
+    },
+    {
+      "name": "103-IML-5_REGIONEN"
+    },
+    {
+      "name": "103-IML-13_KUNDE"
+    },
+    {
+      "name": "103-IML-22_USER"
+    },
+    {
+      "name": "103-IML-25_USER"
+    },
+    {
+      "name": "103-IML-39_USER"
+    },
+    {
+      "name": "103-IML-45_USER"
+    },
+    {
+      "name": "104-COS-PREPROD_SABE"
+    },
+    {
+      "name": "104-COS-PROD_SABE"
+    },
+    {
+      "name": "104-COS-PROD_KD"
+    },
+    {
+      "name": "104-COS-PREPROD_KD"
+    },
+    {
+      "name": "00-HEDIS-WF_EMP_REMOVE_RA"
+    },
+    {
+      "name": "00-HEDIS-WF_SPEZ_ORDER"
+    },
+    {
+      "name": "106-KAMP-KONFIG_CONFIG"
+    },
+    {
+      "name": "106-KAMP-KONFIG_DEEPLINK"
+    },
+    {
+      "name": "106-KAMP-KONFIG_REPORT"
+    },
+    {
+      "name": "OEM_PREPROD_WCA"
+    },
+    {
+      "name": "OEM_PREPROD_EWEB"
+    },
+    {
+      "name": "OEM_PROD_EWEB"
+    },
+    {
+      "name": "OEM_PROD_WCA"
+    },
+    {
+      "name": "108-WCS-INTERNET_ADMIN"
+    },
+    {
+      "name": "78-ECM-ESEARCH_R_A_DOKUMENT_EDIT"
+    },
+    {
+      "name": "77-ECM-EBOX_R_A_PK_ZAHLUNGSVERKEHR"
+    },
+    {
+      "name": "77-ECM-EBOX_R_A_COCKPIT"
+    },
+    {
+      "name": "77-ECM-ESEARCH_R_A_DOKUMENT_EDIT"
+    },
+    {
+      "name": "77-ECM-ESEARCH_R_A_DOKUMENT_DELETE"
+    },
+    {
+      "name": "77-EPORTALKONTO"
+    },
+    {
+      "name": "78-EPORTALKONTO"
+    },
+    {
+      "name": "116-SAPCLOUD-PROD-SAP_SF"
+    },
+    {
+      "name": "117-VPP-PROD_APPL_HELSANA_SUPPORT_IT"
+    },
+    {
+      "name": "117-VPP-TEST_APPL_HELSANA_SUPPORT_IT"
+    },
+    {
+      "name": "117-VPP-PROD_APPL_HELSANA_SUPPORT_FACH"
+    },
+    {
+      "name": "117-VPP-TEST_APPL_HELSANA_SUPPORT_FACH"
+    },
+    {
+      "name": "auth.weak"
+    },
+    {
+      "name": "kundenforum"
+    },
+    {
+      "name": "kundenforum.user"
+    },
+    {
+      "name": "auth.strong]]"
+    }
+  ],
+  "produzentenId": "nummer",
+  "portalID": "HKESQ",
+  "firstName": "Marcel",
+  "name": "Widmer",
+  "mail": "hkesq@helsana.ch",
+  "mobile": "0041763332305",
+  "requestID": "0a813ec8-530b-820a0c2e-14ce4d4386b-00000336",
+  "loggedIn": false
+}{"roles":[{"name": "[[07-ADS0-BASE"},{"name": "11-EMILY-BASE"},{"name": "07-ADS0-PRI-HEL"},{"name": "35-RACF-ESP1"},{"name": "36-ONDEMAND-GERMAN"},{"name": "38-IMANA-SVF"},{"name": "17-SAP0-ESS"},{"name": "47-SYRIUS-MAIN"},{"name": "12-VPN-PANDEMIE"},{"name": "83-SYRIUS-MAIN"},{"name": "83-SYRIUS-ABFAG"},{"name": "83-SYRIUS-SBIT"},{"name": "55-EXCHG-TYP-USER"},{"name": "35-RACF-ODMAXICH"},{"name": "81-AUTH-SMS"},{"name": "80-AUTH-SMS"},{"name": "78-ECM-UCM_R_G_BAS_NORM_RW"},{"name": "77-ECM-UCM_R_G_BAS_NORM_RW"},{"name": "77-ECM-UCM_R_G_BAS_PERS_RW"},{"name": "00-HEDIS-WF_EMP_RR"},{"name": "00-HEDIS-WF_EMP_SW_WS"},{"name": "00-HEDIS-WF_EMP_TICKET"},{"name": "00-HEDIS-WF_EMP_ROLE_LIST"},{"name": "77-ECM-EBOX_R_A_USE"},{"name": "77-ECM-EBOX_R_A_ADMIN"},{"name": "77-ECM-ESEARCH_R_A_USE"},{"name": "78-ECM-ESEARCH_R_A_USE"},{"name": "77-ECM-UCM_A_BASIS_RW"},{"name": "78-ECM-UCM_A_BASIS_RW"},{"name": "00-HEDIS-WF_FEEDBACK"},{"name": "78-ECM-EDOSS_R_A_USE"},{"name": "77-ECM-EDOSS_R_A_USE"},{"name": "91-ALM-USER"},{"name": "77-ECM-EBOX_R_A_PK_KDDE"},{"name": "77-ECM-EBOX_R_A_PK_KDROMANDIE"},{"name": "77-ECM-ESEARCH_R_A_EDIT_SEARCHPROFILE"},{"name": "77-ECM-ESEARCH_R_A_UPLOAD"},{"name": "77-ECM-EBOX_R_A_PK_KDTICINO"},{"name": "77-ECM-ELS_R_A_USE"},{"name": "103-IML-1_DEFAULT"},{"name": "103-IML-5_GAST"},{"name": "103-IML-5_REGIONEN"},{"name": "103-IML-13_KUNDE"},{"name": "103-IML-22_USER"},{"name": "103-IML-25_USER"},{"name": "103-IML-39_USER"},{"name": "103-IML-45_USER"},{"name": "104-COS-PREPROD_SABE"},{"name": "104-COS-PROD_SABE"},{"name": "104-COS-PROD_KD"},{"name": "104-COS-PREPROD_KD"},{"name": "00-HEDIS-WF_EMP_REMOVE_RA"},{"name": "00-HEDIS-WF_SPEZ_ORDER"},{"name": "106-KAMP-KONFIG_CONFIG"},{"name": "106-KAMP-KONFIG_DEEPLINK"},{"name": "106-KAMP-KONFIG_REPORT"},{"name": "OEM_PREPROD_WCA"},{"name": "OEM_PREPROD_EWEB"},{"name": "OEM_PROD_EWEB"},{"name": "OEM_PROD_WCA"},{"name": "108-WCS-INTERNET_ADMIN"},{"name": "78-ECM-ESEARCH_R_A_DOKUMENT_EDIT"},{"name": "77-ECM-EBOX_R_A_PK_ZAHLUNGSVERKEHR"},{"name": "77-ECM-EBOX_R_A_COCKPIT"},{"name": "77-ECM-ESEARCH_R_A_DOKUMENT_EDIT"},{"name": "77-ECM-ESEARCH_R_A_DOKUMENT_DELETE"},{"name": "77-EPORTALKONTO"},{"name": "78-EPORTALKONTO"},{"name": "116-SAPCLOUD-PROD-SAP_SF"},{"name": "117-VPP-PROD_APPL_HELSANA_SUPPORT_IT"},{"name": "117-VPP-TEST_APPL_HELSANA_SUPPORT_IT"},{"name": "117-VPP-PROD_APPL_HELSANA_SUPPORT_FACH"},{"name": "117-VPP-TEST_APPL_HELSANA_SUPPORT_FACH"},{"name": "auth.weak"},{"name": "kundenforum"},{"name": "kundenforum.user"},{"name": "auth.strong]]"}], "produzentenId": "nummer", "portalID": "HKESQ", "firstName": "Marcel", "name": "Widmer", "mail": "hkesq@helsana.ch", "mobile": "0041763332305", "requestID": "0a813ec8-530b-820a0c2e-14ce4d4386b-00000336", "loggedIn": false
+}

@@ -1,0 +1,140 @@
+= Logging-Store
+Marcel Widmer <marzelwidmer@gmail.com>
+2015-06-09
+:revnumber: {project-version}
+:example-caption!:
+ifndef::imagesdir[:imagesdir: images]
+ifndef::sourcedir[:sourcedir: ../java]
+
+
+This is a user manual for the _logging-store_ project.
+
+== Introduction
+
+_logging-store_ is a simple SPA logging service to write some SPA log files in a backend database.
+The application provide a Rest interface and also a AngularJS log viewer client to check your logs in the database.
+
+
+NOTE: This is amazing for a deployment you only have to copy the JAR file to your server and start it with the java -jar command.
+`
+
+== Build Application:
+There are some different profiles for different databases. From inMemory to PostgreSQL till Oracle.
+
+=== Default Profile
+This profile support an inMemory database
+ $ mvn package
+
+=== Oracle Database Profile
+ $ mvn package -Poracle
+
+== Start Application
+
+=== Default Profile
+Start application with inMemory database.
+ $ java -jar target/logging-store-0.0.1-SNAPSHOT.jar &
+
+There are some Spring Profiles
+
+=== Development Profile
+This profile support a PostgreSQL database.
+ $ java -jar -Dspring.profiles.active=development  target/logging-store-0.0.1-SNAPSHOT.jar &
+
+=== Profiles
+.Table -Dspring.profiles.active=
+|===
+|Profile | Environment
+
+|development
+|Development
+
+|test
+|Test
+
+|integration
+|Test
+
+|preproduction
+|PreProduction
+
+|production
+|Production
+|===
+
+
+
+== Shutdown the Application
+
+WARNING: $  curl -X POST localhost:8080/shutdown
+`
+
+== Source Code
+=== RestController
+[source,java]
+.RestController
+----
+include::{sourcedir}/ch/keepcalm/web/controller/LoggingRestController.java[tags=contains,indent=0]
+----
+
+
+== Post a log Message
+===  Request
+ $ curl -X POST  -H "Accept: Application/json" -H "Content-Type: application/json" http://localhost:8080/services/rest/log -d '
+ {
+   "clientApplikation":"app3",
+   "clientVersion":"1.0.1",
+   "correlationId": "c861bb30-0ed1-11e5-b939-0800200c9a33",
+   "debugInformation":"Validation Service Module ",
+   "faultMessage":"Check Module.",
+   "faultCode":"289",
+   "faultType":"SYSTEM_SOFT_SCHEMA",
+   "severity":"WARNING"
+ }
+
+[.thumb]
+image:../images/request-put-json.png[scaledwidth=30%]
+
+
+
+
+== LogViewer UI:
+
+=== Login Page
+[.thumb]
+image:../images/login.png[scaledwidth=30%]
+
+=== Logging-Store
+[.thumb]
+image:../images/logging-store.png[scaledwidth=30%]
+
+==== Example query : _app3_
+[.thumb]
+image:../images/logging-store-query-app3.png[scaledwidth=30%]
+
+===== Example query : _zip_
+[.thumb]
+image:../images/logging-store-query-zip.png[scaledwidth=30%]
+
+==== Example sort : version
+[.thumb]
+image:../images/logging-store-sort-version.png[scaledwidth=30%]
+
+
+
+
+
+
+
+== Attributes
+
+.Built-in
+asciidoctor-version:: {asciidoctor-version}
+safe-mode-name:: {safe-mode-name}
+docdir:: {docdir}
+docfile:: {docfile}
+imagesdir:: {imagesdir}
+
+.Custom
+project-version:: {project-version}
+sourcedir:: {sourcedir}
+endpoint-url:: {endpoint-url}

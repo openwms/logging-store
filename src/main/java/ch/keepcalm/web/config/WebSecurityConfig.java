@@ -42,8 +42,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Autowired
-    protected void configureDatabaseAuthenticationNoProfile(AuthenticationManagerBuilder auth, Environment env) throws Exception {
-        if (env.getActiveProfiles().length == 0){
+    protected void configureDatabaseAuthenticationDevProfile(AuthenticationManagerBuilder auth, Environment env) throws Exception {
+        if (env.acceptsProfiles("dev")){
             log.info("Setting up memory-based authentication for dev");
             auth.inMemoryAuthentication().withUser("mrlog").password("19we1c0me75").roles("USER");
         }

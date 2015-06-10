@@ -19,7 +19,7 @@
 	<div class="collapse navbar-collapse">
 
 		<ul class="nav navbar-nav">
-			<li><a href="#"> <span class="badge badge-info">{{getAllRecords()}}</span></a> </li>
+			<li><a href="#"> <span class="badge badge-info">{{getAllRecords()}} | application:  {{infoClient.app.name}} | version: {{infoClient.app.version}} | profiles : {{envClient.profiles}}</span></a> </li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Endpoints <b class="caret"></b></a>
 				<ul class="dropdown-menu">
@@ -60,9 +60,22 @@
 	<p>&nbsp;</p>
 	<div class="text-left">
 
+
+		<div class="alert alert-warning" role="alert">
+			<div >
+				profiles :
+				<ul>
+					<li ng-repeat="profile in envClient.profiles">{{profile}}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="alert alert-success" role="alert">
+			<div>
+				<p>database: {{healthClient.db.database}} | status : {{healthClient.status}} | free diskspace : {{healthClient.diskSpace.free}}</p>
+			</div>
+		</div>
 		<div class="alert alert-info" role="alert">
 			<div>
-				<!--<span class="label label-info">Sort Type: <i><b>{{ sortType }}</i></b>  | Sort Reverse: <i><b>{{ sortReverse }}</i></b> |  Search Query: <i><b>{{ searchLog }}</i></b></span>-->
 				<p>Sort Type: <i><b>{{ sortType }}</i></b>  | Sort Reverse: <i><b>{{ sortReverse }}</i></b> |  Search Query: <i><b>{{ searchLog }}</i></b></p>
 			</div>
 		</div>
@@ -177,8 +190,12 @@
 
 
 <script src="app.js"></script>
-<script src="features/loggingstore/controller.js"></script>
-<script src="features/loggingstore/services.js"></script>
+<script src="controller/controller.js"></script>
+<script src="services/resource/logging_store_resource.js"></script>
+<script src="services/resource/info_resource.js"></script>
+<script src="services/resource/health_resource.js"></script>
+<script src="services/resource/env_resource.js"></script>
+
 
 
 

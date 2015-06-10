@@ -1,11 +1,10 @@
 angular.module('myApp.controllers', [])
-    .controller('LoggingStoreController', function ($log, $scope, $http, LoggingStoreClient) {
+    .controller('LoggingStoreController', function ($log, $scope, $http, LoggingStoreClient, InfoClient, HealthClient, EnvClient) {
         'use strict';
 
         $scope.sortType     = 'id'; // set the default sort type
         $scope.sortReverse  = false;  // set the default sort order
         $scope.searchFish   = '';     // set the default search/filter term
-
 
 
         // GET ALL
@@ -18,6 +17,14 @@ angular.module('myApp.controllers', [])
             LoggingStoreClient.delete({id: storeId});
             $scope.store = LoggingStoreClient.query();
         };*/
+
+        // get application info
+        $scope.infoClient = InfoClient.get();
+        // get application health
+        $scope.healthClient = HealthClient.get();
+
+        $scope.envClient = EnvClient.get();
+        $scope.envProfile = $scope.envClient.profiles;
     });
 
 

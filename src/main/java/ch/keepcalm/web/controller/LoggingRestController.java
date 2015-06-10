@@ -16,7 +16,6 @@ import java.util.List;
 
 /**
  * Created by marcelwidmer on 25/05/15.
- * <p/>
  * <pre>
  *     <code>
  *         {

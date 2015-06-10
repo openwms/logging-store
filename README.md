@@ -12,7 +12,8 @@
 
 
 
-# POST a Log Message
+
+# POST a Log Message with curl
 ```
 curl -X POST  -H "Accept: Application/json" -H "Content-Type: application/json" http://localhost:8080/services/rest/log -d '{
   "clientApplikation":"SPA1",

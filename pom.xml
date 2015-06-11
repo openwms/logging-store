@@ -18,6 +18,13 @@
         <!-- lookup parent from repository -->
     </parent>
 
+    <scm>
+        <connection>ssh://git@msswlmp01.ads.hel.kko.ch:7999/ser/logging-store.git</connection>
+        <developerConnection>ssh://git@msswlmp01.ads.hel.kko.ch:7999/ser/logging-store.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <start-class>ch.keepcalm.web.LoggingStoreApplication</start-class>

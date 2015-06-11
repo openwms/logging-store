@@ -1,0 +1,6 @@
+{
+  "proxy": "http://webpro-sv-test:8080/",
+  "https-proxy": "http://webpro-sv-test:8080/",
+  "strict-ssl": false,
+  "interactive": false
+}

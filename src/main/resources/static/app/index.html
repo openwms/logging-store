@@ -1,204 +1,374 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
 <head>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>logging-store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../eden-ui/css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="../eden-ui/skins/eden.css" media="screen">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../eden-ui/css/animate.css" rel="stylesheet">
 
-	<title>Logging-Store</title>
-	<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.1/css/bootstrap.min.css"
-		  th:href="@{/webjars/bootstrap/3.3.1/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
-	<link href="../css/custom.css" th:href="@{/css/custom.css}" rel="stylesheet" media="screen"/>
+    <style>
+        .navbar-holder-dark {
+            padding: 20px 20px 200px 20px;
+            background: #333333;
+        }
+    </style>
+
 </head>
-
 <body ng-app="myApp" ng-controller="LoggingStoreController">
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="navbar-header">
-		<a class="navbar-brand" rel="home" href="#">Logging-Store</a>
-	</div>
 
-	<div class="collapse navbar-collapse">
-
-		<ul class="nav navbar-nav">
-			<li><a href="#"> <span class="badge badge-info">{{getAllRecords()}} | application:  {{infoClient.app.name}} | version: {{infoClient.app.version}} | profiles : {{envClient.profiles}}</span></a> </li>
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Endpoints <b class="caret"></b></a>
-				<ul class="dropdown-menu">
-					<li><a href="/info">info</a></li>
-					<li><a href="/health">health</a></li>
-					<li class="divider"></li>
-					<li><a href="/autoconfig">autoconfig</a></li>
-					<li><a href="/beans">beans</a></li>
-					<li><a href="/configprops">configprops</a></li>
-					<li><a href="/dump">dump</a></li>
-					<li><a href="/env">env</a></li>
-					<li><a href="/metrics">metrics</a></li>
-					<li><a href="/mappings">mappings</a></li>
-					<li><a href="/shutdown">shutdown</a></li>
-					<li><a href="/trace">trace</a></li>
-				</ul>
-			</li>
-			<li><a href="/logout"><b><i>Logout</i></b></a></li>
-		</ul>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">logging-store</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-expanded="false">Menu <span class="caret"></span></a>
 
 
-		<div class="col-sm-3 col-md-3 pull-right">
-			<div class="navbar-text"></div>
-			<form class="navbar-form" role="search">
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search log" ng-model="searchLog" name="srch-term" id="srch-term" />
-					<div class="input-group-btn">
-						<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/info" target="_blank">info</a></li>
+                        <li><a href="/health" target="_blank">health</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/autoconfig" target="_blank">autoconfig</a></li>
+                        <li><a href="/beans" target="_blank">beans</a></li>
+                        <li><a href="/configprops" target="_blank">configprops</a></li>
+                        <li class="divider" target="_blank"></li>
+                        <li><a href="/dump" target="_blank">dump</a></li>
+                        <li><a href="/env" target="_blank">env</a></li>
+                        <li><a href="/metrics" target="_blank">metrics</a></li>
+                        <li><a href="/mappings" target="_blank">mappings</a></li>
+                        <li><a href="/trace" target="_blank">trace</a></li>
+                        <li class="divider" target="_blank"></li>
+                        <li><a href="#" target="_blank">Create User</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="badge badge-info"><i>Application Name: </i>{{infoClient.app.name}} <i>Version: </i>{{infoClient.app.version}} <i>found
+                            total </i>{{getAllRecords()}}<i> records</i> </span></a>
+                </li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/logout"><b><i>Logout</i></b></a></li>
+            </ul>
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search log" ng-model="searchLog"
+                           name="srch-term" id="srch-term"/>
+
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
 </div>
-
-
 <div class="container">
-	<p>&nbsp;</p>
-	<div class="text-left">
+
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <h1>logging-store</h1>
+
+                <p class="lead">Store your logs.</p>
+
+                <p><i><b>logging-store</b></i> is a simple SPA logging service to write some SPA log files in a backend
+                    database. The
+                    application provide a Rest interface and also a AngularJS log viewer client to check your logs in
+                    the database.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h5>Information point</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="bs-component">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Store Sort / Search Query</div>
+                    <div class="panel-body">
+                        <ul>
+                            <li ng-if="searchLog" contenteditable=true>{{searchLog}}</li>
+
+                            <li>{{ sortType }}</li>
+                            <li>{{ sortReverse }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="bs-component">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Profiles</div>
+                    <div class="panel-body">
+                        <ul>
+                            <li ng-repeat="profile in envClient.profiles">{{profile}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="bs-component">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Database</div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>database: {{healthClient.db.database}}</li>
+                            <li>status: {{healthClient.status}}</li>
+                            <li>free disk space: {{healthClient.diskSpace.free}}</li>
+                            <li>record count: {{getAllRecords()}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div>
+                <h5 class="mb-2">Logging Store <span class="badge">{{getAllRecords()}}</span></h5>
+
+                <!-- $STRIPED TABLE -->
+                <!-- ========================================= -->
+
+                <table class="table table-striped table-responsive">
+                    <thead>
+                    <tr>
+                        <th>
+                            <a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse">
+                                ID
+                                <span ng-show="sortType == 'id' && !sortReverse"
+                                      class="glyphicon glyphicon-chevron-down"></span>
+                                <span ng-show="sortType == 'id' && sortReverse"
+                                      class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'timestamp'; sortReverse = !sortReverse">
+                                Timestamp
+                                <span ng-show="sortType == 'timestamp' && !sortReverse"
+                                      class="glyphicon glyphicon-chevron-down"></span>
+                                <span ng-show="sortType == 'timestamp' && sortReverse"
+                                      class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'clientApplikation'; sortReverse = !sortReverse">
+                                Applikation<br/>Name
+                                <span ng-show="sortType == 'clientApplikation' && !sortReverse"
+                                      class="glyphicon glyphicon-chevron-down"></span>
+                                <span ng-show="sortType == 'clientApplikation' && sortReverse"
+                                      class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'clientVersion'; sortReverse = !sortReverse">
+                                Application<br/> Version
+                                <span ng-show="sortType == 'clientVersion' && !sortReverse"
+                                      class="glyphicon glyphicon-chevron-down"></span>
+                                <span ng-show="sortType == 'clientVersion' && sortReverse"
+                                      class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'debugInformation'; sortReverse = !sortReverse">
+                                Debug<br/>Information
+                                <span ng-show="sortType == 'debugInformation' && !sortReverse"
+                                      class="glyphicon glyphicon-chevron-down"></span>
+                                <span ng-show="sortType == 'debugInformation' && sortReverse"
+                                      class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'faultCode'; sortReverse = !sortReverse">
+                                Fault<br/>Code
+                                <span ng-show="sortType == 'faultCode' && !sortReverse"
+                                      class="glyphicon glyphicon-chevron-down"></span>
+                                <span ng-show="sortType == 'faultCode' && sortReverse"
+                                      class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'faultMessage'; sortReverse = !sortReverse">
+                                Fault<br/>Message
+                                <span ng-show="sortType == 'faultMessage' && !sortReverse"
+                                      class="glyphicon glyphicon-chevron-down"></span>
+                                <span ng-show="sortType == 'faultMessage' && sortReverse"
+                                      class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'faultType'; sortReverse = !sortReverse">
+                                Fault<br/>Type
+                                <span ng-show="sortType == 'faultType' && !sortReverse"
+                                      class="glyphicon glyphicon-chevron-down"></span>
+                                <span ng-show="sortType == 'faultType' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'severity'; sortReverse = !sortReverse">
+                                Log<br/>Severity
+                                <span ng-show="sortType == 'severity' && !sortReverse"
+                                      class="glyphicon glyphicon-chevron-down"></span>
+                                <span ng-show="sortType == 'severity' && sortReverse"
+                                      class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'correlationId'; sortReverse = !sortReverse">
+                                Correlation ID
+                                <span ng-show="sortType == 'correlationId' && !sortReverse"
+                                      class="glyphicon glyphicon-chevron-down	"></span>
+                                <span ng-show="sortType == 'correlationId' && sortReverse"
+                                      class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="log in store | orderBy:sortType:sortReverse | filter:searchLog">
+                        <td style="word-wrap: break-word;min-width: 40px;max-width: 50px;white-space:normal;">
+                            {{log.id}}
+                        </td>
+                        <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
+                            {{log.timestamp}}
+                        </td>
+                        <td style="word-wrap: break-word;min-width: 20px;max-width: 20px;white-space:normal;">
+                            {{log.clientApplikation}}
+                        </td>
+                        <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
+                            {{log.clientVersion}}
+                        </td>
+                        <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
+                            {{log.debugInformation}}
+                        </td>
+                        <td style="word-wrap: break-word;min-width: 20px;max-width: 20px;white-space:normal;">
+                            {{log.faultCode}}
+                        </td>
+                        <td style="word-wrap: break-word;min-width: 200px;max-width: 200px;white-space:normal;">
+                            {{log.faultMessage}}
+                        </td>
+                        <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
+                            {{log.faultType}}
+                        </td>
+                        <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
+                            {{log.severity}}
+                        </td>
+                        <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
+                            {{log.correlationId}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
 
 
-		<div class="alert alert-warning" role="alert">
-			<div >
-				profiles :
-				<ul>
-					<li ng-repeat="profile in envClient.profiles">{{profile}}</li>
-				</ul>
-			</div>
-		</div>
-		<div class="alert alert-success" role="alert">
-			<div>
-				<p>database: {{healthClient.db.database}} | status : {{healthClient.status}} | free diskspace : {{healthClient.diskSpace.free}}</p>
-			</div>
-		</div>
-		<div class="alert alert-info" role="alert">
-			<div>
-				<p>Sort Type: <i><b>{{ sortType }}</i></b>  | Sort Reverse: <i><b>{{ sortReverse }}</i></b> |  Search Query: <i><b>{{ searchLog }}</i></b></p>
-			</div>
-		</div>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <hr/>
+                    <p>By <a href="http://keepCalm.ch/" rel="nofollow">KeepCalm</a>.</p>
 
-		<!--<div class="logtable">-->
-		<div>
-		<!-- Logging-Store -->
-		<table class="table table-bordered table-striped">
-			<thead>
-			<tr>
-				<th>
-					<a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse">
-						<b>ID</b>
-						<span ng-show="sortType == 'id' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-						<span ng-show="sortType == 'id' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
-					</a>
-				</th>
-				<th>
-					<a href="#" ng-click="sortType = 'timestamp'; sortReverse = !sortReverse">
-						<b>Timestamp</b>
-						<span ng-show="sortType == 'timestamp' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-						<span ng-show="sortType == 'timestamp' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
-					</a>
-				</th>
-				<th>
-					<a href="#" ng-click="sortType = 'clientApplikation'; sortReverse = !sortReverse">
-						<b>Applikation</b>
-						<span ng-show="sortType == 'clientApplikation' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-						<span ng-show="sortType == 'clientApplikation' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
-					</a>
-				</th>
-				<th>
-					<a href="#" ng-click="sortType = 'clientVersion'; sortReverse = !sortReverse">
-						Version
-						<span ng-show="sortType == 'clientVersion' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-						<span ng-show="sortType == 'clientVersion' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
-					</a>
-				</th>
-				<th>
-					<a href="#" ng-click="sortType = 'debugInformation'; sortReverse = !sortReverse">
-						<b>Debug Information</b>
-						<span ng-show="sortType == 'debugInformation' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-						<span ng-show="sortType == 'debugInformation' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
-					</a>
-				</th>
-				<th>
-					<a href="#" ng-click="sortType = 'faultCode'; sortReverse = !sortReverse">
-						<b>Fault Code</b>
-						<span ng-show="sortType == 'faultCode' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-						<span ng-show="sortType == 'faultCode' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
-					</a>
-				</th>
-				<th>
-					<a href="#" ng-click="sortType = 'faultMessage'; sortReverse = !sortReverse">
-						<b>Fault Message</b>
-						<span ng-show="sortType == 'faultMessage' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-						<span ng-show="sortType == 'faultMessage' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
-					</a>
-				</th>
-				<th>
-					<a href="#" ng-click="sortType = 'faultType'; sortReverse = !sortReverse">
-						<b>Fault Type</b>
-						<span ng-show="sortType == 'faultType' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-						<span ng-show="sortType == 'faultType' && sortReverse" class="fa fa-caret-up"></span>
-					</a>
-				</th>
-				<th>
-					<a href="#" ng-click="sortType = 'severity'; sortReverse = !sortReverse">
-						<b>Severity</b>
-						<span ng-show="sortType == 'severity' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-						<span ng-show="sortType == 'severity' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
-					</a>
-				</th>
-				<th>
-					<a href="#" ng-click="sortType = 'correlationId'; sortReverse = !sortReverse">
-						<b>Correlation ID</b>
-						<span ng-show="sortType == 'correlationId' && !sortReverse" class="glyphicon glyphicon-chevron-down	"></span>
-						<span ng-show="sortType == 'correlationId' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
-					</a>
-				</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr ng-repeat="log in store | orderBy:sortType:sortReverse | filter:searchLog">
-				<td style="word-wrap: break-word;min-width: 40px;max-width: 50px;white-space:normal;">{{log.id}}</td>
-				<td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">{{log.timestamp}}</td>
-				<td style="word-wrap: break-word;min-width: 20px;max-width: 20px;white-space:normal;">{{log.clientApplikation}}</td>
-				<td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">{{log.clientVersion}}</td>
-				<td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">{{log.debugInformation}}</td>
-				<td style="word-wrap: break-word;min-width: 20px;max-width: 20px;white-space:normal;">{{log.faultCode}}</td>
-				<td style="word-wrap: break-word;min-width: 200px;max-width: 200px;white-space:normal;">{{log.faultMessage}}</td>
-				<td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">{{log.faultType}}</td>
-				<td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">{{log.severity}}</td>
-				<td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">{{log.correlationId}}</td>
-			</tr>
-			</tbody>
-		</table>
-		</div>
-	</div>
+                </div>
+            </div>
 
-</div><!-- /.container -->
-<!-- script references -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<script src="../bower_components/angular/angular.js"></script>
-<script src="../bower_components/angular-route/angular-route.js"></script>
-<script src="../bower_components/angular-resource/angular-resource.js"></script>
-<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="../bower_components/angular-hateoas/src/angular-hateoas.js"></script>
-<script src="../bower_components/angular-spring-data-rest/dist/angular-spring-data-rest.js"></script>
+        </footer>
 
 
-<script src="app.js"></script>
-<script src="controller/controller.js"></script>
-<script src="services/resource/logging_store_resource.js"></script>
-<script src="services/resource/info_resource.js"></script>
-<script src="services/resource/health_resource.js"></script>
-<script src="services/resource/env_resource.js"></script>
+    </div>
 
 
+    <!-- script references -->
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/angular-hateoas/src/angular-hateoas.js"></script>
+    <script src="../bower_components/angular-spring-data-rest/dist/angular-spring-data-rest.js"></script>
+
+
+    <script src="app.js"></script>
+    <script src="controller/controller.js"></script>
+    <script src="services/resource/logging_store_resource.js"></script>
+    <script src="services/resource/info_resource.js"></script>
+    <script src="services/resource/health_resource.js"></script>
+    <script src="services/resource/env_resource.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('.navbar .dropdown, .dropdown-submenu').hover(function () {
+                //$(this).find('.dropdown-menu').first().stop(true, true).delay(250).slideDown();
+                //$(this).find('.dropdown-menu').show().removeClass('flipOutY').addClass('animated flipInY');
+                //$(this).find('.dropdown-menu').show().removeClass('bounceOut').addClass('animated bounceIn');
+                //$(this).find('.dropdown-menu').first().show();
+
+
+            }, function () {
+                //$(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideUp();
+                //$(this).find('.dropdown-menu').removeClass('flipInY').addClass('animated flipOutY').fadeOut();
+                //$(this).find('.dropdown-menu').removeClass('bounceIn').addClass('animated bounceOut').fadeOut();
+                //$(this).find('.dropdown-menu').first().hide();
+
+            });
+
+            $('#featureCarousel').carousel({
+                interval: 4000
+            });
+
+            var clickEvent = false;
+            $('#featureCarousel').on('click', '.nav a', function () {
+                clickEvent = true;
+                $('.nav li').removeClass('active');
+                $(this).parent().addClass('active');
+            }).on('slid.bs.carousel', function (e) {
+                if (!clickEvent) {
+                    var count = $('#featureCarousel .nav').children().length - 1;
+                    var current = $('#featureCarousel .nav li.active');
+                    current.removeClass('active').next().addClass('active');
+                    var id = parseInt(current.data('slide-to'));
+
+                    if (count == id) {
+                        $('#featureCarousel .nav li').first().addClass('active');
+                    }
+                }
+                clickEvent = false;
+            });
+        });
+    </script>
 
 </body>
 </html>
-

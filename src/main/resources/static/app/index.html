@@ -253,44 +253,55 @@
                                       class="glyphicon glyphicon-chevron-up"></span>
                             </a>
                         </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'selflink'; sortReverse = !sortReverse">
+                                link
+                                <span ng-show="sortType == 'selflink' && !sortReverse"
+                                      class="glyphicon glyphicon-chevron-down	"></span>
+                                <span ng-show="sortType == 'selflink' && sortReverse"
+                                      class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="log in store | orderBy:sortType:sortReverse | filter:searchLog">
+                    <tr ng-repeat="store in loggingStore | orderBy:sortType:sortReverse | filter:searchLog">
                         <td style="word-wrap: break-word;min-width: 40px;max-width: 50px;white-space:normal;">
-                            {{log.id}}
+                            {{store.loggingStore.id}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
-                            {{log.timestamp}}
+                            {{store.loggingStore.timestamp}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 20px;max-width: 20px;white-space:normal;">
-                            {{log.clientApplikation}}
+                            {{store.loggingStore.clientApplikation}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
-                            {{log.clientVersion}}
+                            {{store.loggingStore.clientVersion}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
-                            {{log.debugInformation}}
+                            {{store.loggingStore.debugInformation}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 20px;max-width: 20px;white-space:normal;">
-                            {{log.faultCode}}
+                            {{store.loggingStore.faultCode}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 200px;max-width: 200px;white-space:normal;">
-                            {{log.faultMessage}}
+                            {{store.loggingStore.faultMessage}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
-                            {{log.faultType}}
+                            {{store.loggingStore.faultType}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
-                            {{log.severity}}
+                            {{store.loggingStore.severity}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
-                            {{log.correlationId}}
+                            {{store.loggingStore.correlationId}}
+                        </td>
+                        <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
+                            <a href="{{store.link.href}}" target="_blank">{{store.link.href}}</a>
                         </td>
                     </tr>
                     </tbody>
                 </table>
-
             </div>
 
         </div>

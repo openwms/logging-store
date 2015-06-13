@@ -8,10 +8,12 @@ angular.module('myApp.controllers', [])
 
 
         // GET ALL
-        $scope.store = LoggingStoreClient.query(); //fetch all
+        $scope.loggingStore = LoggingStoreClient.query(); //fetch all
         $scope.getAllRecords = function () {
-            return $scope.store.length;
+            return $scope.loggingStore.length;
         };
+
+
         // callback for ng-click 'deleteUser':
        /* $scope.deleteLog = function (storeId) {
             LoggingStoreClient.delete({id: storeId});

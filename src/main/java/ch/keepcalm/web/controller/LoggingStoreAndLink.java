@@ -16,7 +16,9 @@ public class LoggingStoreAndLink {
 
     public LoggingStoreAndLink(LoggingStore loggingStore) {
         this.loggingStore = loggingStore;
-        this.link = linkTo(methodOn(LoggingStoreController.class).getLoggingStore(loggingStore.getId())).withRel(loggingStore.getId() + " " + loggingStore.getCorrelationId());
+        this.link = linkTo(methodOn(LoggingStoreController.class).getLoggingStore(loggingStore.getId()))
+                .withRel(loggingStore.getId() + " " + loggingStore.getCorrelationId());
+        /*this.link = linkTo(LoggingStoreController.class).slash(loggingStore.getId()).withSelfRel();*/
     }
 
     public LoggingStore getLoggingStore(){

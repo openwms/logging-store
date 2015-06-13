@@ -156,7 +156,7 @@
 
         <div class="col-md-12">
             <div>
-                <h5 class="mb-2">Logging Store <span class="badge">{{getAllRecords()}}</span></h5>
+                <h5 class="mb-2">Logging Store <span class="badge">{{recordsCount()}}</span></h5>
 
                 <!-- $STRIPED TABLE -->
                 <!-- ========================================= -->
@@ -254,11 +254,11 @@
                             </a>
                         </th>
                         <th>
-                            <a href="#" ng-click="sortType = 'selflink'; sortReverse = !sortReverse">
-                                link
-                                <span ng-show="sortType == 'selflink' && !sortReverse"
+                            <a href="#" ng-click="sortType = 'detail'; sortReverse = !sortReverse">
+                                Detail
+                                <span ng-show="sortType == 'detail' && !sortReverse"
                                       class="glyphicon glyphicon-chevron-down	"></span>
-                                <span ng-show="sortType == 'selflink' && sortReverse"
+                                <span ng-show="sortType == 'detail' && sortReverse"
                                       class="glyphicon glyphicon-chevron-up"></span>
                             </a>
                         </th>

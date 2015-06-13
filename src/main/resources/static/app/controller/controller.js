@@ -4,12 +4,20 @@ angular.module('myApp.controllers', [])
 
         $scope.sortType     = 'id'; // set the default sort type
         $scope.sortReverse  = false;  // set the default sort order
-        $scope.searchFish   = '';     // set the default search/filter term
+        $scope.searchLog   = '';     // set the default search/filter term
 
 
         // GET ALL
         $scope.loggingStore = LoggingStoreClient.query(); //fetch all
-        $scope.getAllRecords = function () {
+
+        var log = [];
+        angular.forEach($scope.loggingStore, function(value, key) {
+            this.push(key + ': ' + value);
+            console.log("key " + key + " value" + value);
+        }, log);
+
+
+        $scope.recordsCount = function () {
             return $scope.loggingStore.length;
         };
 

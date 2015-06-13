@@ -1,4 +1,4 @@
-package ch.keepcalm.web.domain;
+package ch.keepcalm.web.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
 

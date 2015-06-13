@@ -1,7 +1,7 @@
 package ch.keepcalm.web.controller;
 
 import ch.keepcalm.web.LoggingStoreApplication;
-import ch.keepcalm.web.domain.LoggingStore;
+import ch.keepcalm.web.model.LoggingStore;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +26,7 @@ import static org.junit.Assert.assertNotNull;
 @ActiveProfiles("junit")
 @WebAppConfiguration
 @IntegrationTest({"server.port=0"})
-public class LoggingRestControllerTest {
+public class LoggingStoreControllerTest {
 
     @Value("${local.server.port}")
     private int port;

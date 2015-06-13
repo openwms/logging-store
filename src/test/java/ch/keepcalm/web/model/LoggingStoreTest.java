@@ -1,4 +1,4 @@
-package ch.keepcalm.web.domain;
+package ch.keepcalm.web.model;
 
 import ch.keepcalm.web.LoggingStoreApplication;
 import ch.keepcalm.web.repository.LoggingStoreRepository;

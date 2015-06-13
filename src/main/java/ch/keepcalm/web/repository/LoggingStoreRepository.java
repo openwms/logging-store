@@ -1,6 +1,6 @@
 package ch.keepcalm.web.repository;
 
-import ch.keepcalm.web.domain.LoggingStore;
+import ch.keepcalm.web.model.LoggingStore;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

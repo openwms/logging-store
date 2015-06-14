@@ -8,10 +8,24 @@ angular.module('myApp.controllers', [])
 
         // GET ALL
         $scope.loggingStore = LoggingStoreClient.query(); //fetch all
+        $scope.gridOptions = {
+            data: 'loggingStore'
+        };
 
-        $scope.gridOptions = {data: 'loggingStore'};
 
-
+        $scope.findIndex = function(row) {
+            // find real row by comparing $$hashKey with entity in row
+            var rowIndex = -1;
+            var hash = row.entity.$$hashKey;
+            var data = $scope.gridOptions.data;     // original rows of data
+            for (var ndx = 0; ndx < data.length; ndx++) {
+                if (data[ndx].$$hashKey == hash) {
+                    rowIndex = ndx;
+                    break;
+                }
+            }
+            return rowIndex;
+        };
         //http://angular-ui.github.io/ng-grid/
 
 
@@ -33,10 +47,4 @@ angular.module('myApp.controllers', [])
  *
  * @constructor
  */
-function LoggingStore() {
-    "use strict";
-    this.id;
-    this.timestamp;
-    this.clientApplikation;
-    this.clientVersion;
-}
+function LoggingStore() {}

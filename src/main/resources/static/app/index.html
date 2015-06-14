@@ -160,7 +160,7 @@
 
         <!-- http://angular-ui.github.io/ng-grid/ -->
         <div class="col-md-12">
-                Logging Store
+                Logging Store gridOption
                 <div class="col-md-12 gridStyle " ng-grid="gridOptions">
                 </div>
         </div>
@@ -169,7 +169,7 @@
 
         <div class="col-md-12">
             <div>
-                <h5 class="mb-2">Logging Store <span class="badge">{{recordsCount()}}</span></h5>
+                <h5 class="mb-2">Logging Store old <span class="badge">{{recordsCount()}}</span></h5>
                 <table class="table table-striped table-responsive">
                     <thead>
                     <tr>
@@ -276,37 +276,37 @@
                     <tbody>
                     <tr ng-repeat="store in loggingStore | orderBy:sortType:sortReverse | filter:searchLog">
                         <td style="word-wrap: break-word;min-width: 40px;max-width: 50px;white-space:normal;">
-                            {{store.loggingStore.id}}
+                            {{store.id}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
-                            {{store.loggingStore.timestamp}}
+                            {{store.timestamp}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 20px;max-width: 20px;white-space:normal;">
-                            {{store.loggingStore.clientApplikation}}
+                            {{store.clientApplikation}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
-                            {{store.loggingStore.clientVersion}}
+                            {{store.clientVersion}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
-                            {{store.loggingStore.debugInformation}}
+                            {{store.debugInformation}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 20px;max-width: 20px;white-space:normal;">
-                            {{store.loggingStore.faultCode}}
+                            {{store.faultCode}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 200px;max-width: 200px;white-space:normal;">
-                            {{store.loggingStore.faultMessage}}
+                            {{store.faultMessage}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
-                            {{store.loggingStore.faultType}}
+                            {{store.faultType}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
-                            {{store.loggingStore.severity}}
+                            {{store.severity}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
-                            {{store.loggingStore.correlationId}}
+                            {{store.correlationId}}
                         </td>
                         <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
-                            <a href="{{store.link.href}}" target="_blank">{{store.link.href}}</a>
+                            <a href="{{store.detail}}" target="_blank">{{store.detail}}</a>
                         </td>
                     </tr>
                     </tbody>
@@ -315,48 +315,6 @@
         </div>
 
 
-
-
-        <div class="col-md-12">
-            <div>
-                <h5 class="mb-2">Logging Store <span class="badge">{{recordsCount()}}</span></h5>
-                <table ng-table="tableParams" class="table ng-table-responsive">
-
-                    <tr ng-repeat="log in dataset | orderBy: 'id' as searchLog">
-                        <td data-title="'ID'">
-                            {{log.loggingStore.id}}
-                        </td>
-                        <td data-title="'Timestamp'">
-                            {{log.loggingStore.timestamp}}
-                        </td>
-                        <td data-title="'Client Applikation'">
-                            {{log.loggingStore.clientApplikation}}
-                        </td>
-                        <td data-title="'Client Version'">
-                            {{log.loggingStore.clientVersion}}
-                        </td>
-                        <td data-title="'Debug'">
-                            {{log.loggingStore.debugInformation}}
-                        </td>
-                        <td data-title="'Fault Code'">
-                            {{log.loggingStore.faultCode}}
-                        </td>
-                        <td data-title="'Message'">
-                            {{log.loggingStore.faultMessage}}
-                        </td>
-                        <td data-title="'Severity'">
-                            {{log.loggingStore.severity}}
-                        </td>
-                        <td data-title="'Correlation ID'">
-                            {{log.loggingStore.correlationId}}
-                        </td>
-                        <td data-title="'Details'">
-                            {{log.link.href}}
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
 
         <footer>
             <div class="row">

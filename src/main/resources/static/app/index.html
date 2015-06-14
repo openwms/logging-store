@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../eden-ui/css/animate.css">
     <link rel="styleSheet" href="../bower_components/ui-grid/ng-grid.min.css"/>
+    <link rel="styleSheet" href="../css/custom.css"/>
+
 
 
     <style>
@@ -160,16 +162,15 @@
 
         <!-- http://angular-ui.github.io/ng-grid/ -->
         <div class="col-md-12">
-                Logging Store gridOption
-                <div class="col-md-12 gridStyle " ng-grid="gridOptions">
-                </div>
+                <h5 class="mb-2">Logging Store <span class="badge">{{recordsCount()}}</span></h5>
+                <div class="col-md-12 gridStyle " ng-grid="gridOptions"></div>
         </div>
 
 
 
         <div class="col-md-12">
             <div>
-                <h5 class="mb-2">Logging Store old <span class="badge">{{recordsCount()}}</span></h5>
+                <h5 class="mb-2">Logging Store <span class="badge">{{recordsCount()}}</span></h5>
                 <table class="table table-striped table-responsive">
                     <thead>
                     <tr>

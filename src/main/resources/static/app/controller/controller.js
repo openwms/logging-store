@@ -33,7 +33,6 @@ angular.module('myApp.controllers', [])
                     $defer.resolve($scope.dataset.slice((params.page() - 1) * params.count(), params.page() * params.count()));
                 }
             });
-            console.log('all store entries - ', $scope.storeEntries.length);
         });
 
 

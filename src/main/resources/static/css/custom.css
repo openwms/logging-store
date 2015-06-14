@@ -4,10 +4,10 @@ html {
 body {
     padding-top: 50px;
 }
-
-.myGrid {
-    width: 500px;
-    height: 250px;
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 400px;
+    height: 100%
 }
 
 .bgimg{
@@ -19,15 +19,7 @@ body {
     /*opacity: 0.4;
     filter: alpha(opacity=40); /* For IE8 and earlier */
 }
-.bgimg2{
-    background: url(../images/bg2.jpeg) no-repeat center center fixed transparent;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    /*opacity: 0.4;
-    filter: alpha(opacity=40); /* For IE8 and earlier8 */
-}
+
 .logtable{
     background-color:#e7edb5;
     /*#c4edb5;*/

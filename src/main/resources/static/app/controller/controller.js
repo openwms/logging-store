@@ -1,5 +1,5 @@
 angular.module('myApp.controllers', [])
-    .controller('LoggingStoreController', function ($log, $scope, $http, LoggingStoreClient, InfoClient, HealthClient, EnvClient) {
+    .controller('LoggingStoreController', function ($log, $scope, $http, LoggingStoreClient, InfoClient, HealthClient, EnvClient,NgTableParams) {
         'use strict';
 
         $scope.sortType     = 'id'; // set the default sort type
@@ -10,11 +10,45 @@ angular.module('myApp.controllers', [])
         // GET ALL
         $scope.loggingStore = LoggingStoreClient.query(); //fetch all
 
-        var log = [];
-        angular.forEach($scope.loggingStore, function(value, key) {
-            this.push(key + ': ' + value);
-            console.log("key " + key + " value" + value);
-        }, log);
+
+
+                var data = [{name: "Moroni", age: 50},
+                    {name: "Tiancum", age: 43},
+                    {name: "Jacob", age: 27},
+                    {name: "Nephi", age: 29},
+                    {name: "Enos", age: 34},
+                    {name: "Tiancum", age: 43},
+                    {name: "Jacob", age: 27},
+                    {name: "Nephi", age: 29},
+                    {name: "Enos", age: 34},
+                    {name: "Tiancum", age: 43},
+                    {name: "Jacob", age: 27},
+                    {name: "Nephi", age: 29},
+                    {name: "Enos", age: 34},
+                    {name: "Tiancum", age: 43},
+                    {name: "Jacob", age: 27},
+                    {name: "Nephi", age: 29},
+                    {name: "Enos", age: 34}];
+
+                $scope.tableParams = new NgTableParams({
+                    page: 1,            // show first page
+                    count: 10           // count per page
+                }, {
+                    total: data.length, // length of data
+                    getData: function($defer, params) {
+                        $defer.resolve(data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+                    }
+                });
+
+
+
+
+
+
+
+
+
+
 
 
         $scope.recordsCount = function () {

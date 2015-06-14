@@ -6,24 +6,9 @@ angular.module('myApp.controllers', [])
         $scope.sortReverse = false;  // set the default sort order
         $scope.searchLog = '';     // set the default search/filter term
 
-
         // GET ALL
         $scope.loggingStore = LoggingStoreClient.query(); //fetch all
-
-/*
-        var storeData = [];
-*/
         $scope.dataset = LoggingStoreClient.query(function (response) {
-            /*for (var i = 0, len = response.length; i < len; i++) {
-                var loggingStore = new LoggingStore();
-                loggingStore.setId(response[i].loggingStore.id);
-                loggingStore.setTimestamp(response[i].loggingStore.timestamp);
-                loggingStore.setClientApplikation(response[i].loggingStore.clientApplikation);
-                loggingStore.setClientVersion(response[i].loggingStore.clientVersion);
-                storeData.push(loggingStore);
-            }
-            $scope.dataset = storeData;
-             */
             $scope.tableParams = new NgTableParams({
                 page: 1,            // show first page
                 count: 5           // count per page

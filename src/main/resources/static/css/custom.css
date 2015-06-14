@@ -5,6 +5,11 @@ body {
     padding-top: 50px;
 }
 
+.myGrid {
+    width: 500px;
+    height: 250px;
+}
+
 .bgimg{
     background: url(../images/bg.jpeg) no-repeat center center fixed transparent;
     -webkit-background-size: cover;

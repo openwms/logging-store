@@ -2,7 +2,6 @@ package ch.keepcalm.web.controller;
 
 import ch.keepcalm.web.model.LoggingStore;
 import ch.keepcalm.web.repository.LoggingStoreRepository;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,14 +35,15 @@ public class LoggingStoreController {
     @Autowired
     private LoggingStoreRepository repository;
 
-    // tag::contains[]
+    // tag::post[]
     @RequestMapping(value = "/log", method = RequestMethod.POST)
     public ResponseEntity log(@Valid @RequestBody LoggingStore loggingStore) {
         repository.saveAndFlush(loggingStore);
         return new ResponseEntity(new EmptyJsonResponse(), HttpStatus.CREATED);
     }
-    // end::contains[]
+    // end::post[]
 
+    // tag::getall[]
     @RequestMapping(value = "/log/", method = RequestMethod.GET)
     public List<LoggingStoreAndLink> redLogs() {
         List<LoggingStoreAndLink> loggingStoreAndLinks = new ArrayList<LoggingStoreAndLink>();
@@ -53,7 +53,9 @@ public class LoggingStoreController {
         }
         return  loggingStoreAndLinks;
     }
+    // end::getall[]
 
+    // tag::getone[]
     @RequestMapping(value = "/log/{id}", method = RequestMethod.GET)
     public LoggingStore getLoggingStore(@PathVariable Long id) {
         //this.validateLog(id);
@@ -62,19 +64,17 @@ public class LoggingStoreController {
         // TODO
         return one;
     }
-
+    // end::getone[]
 
     // TODO
-    private void validateLog(Long id) {
+   /* private void validateLog(Long id) {
         if(this.repository.findOne(id) == null){
             new LoggingStoreNotFoundException(id);
         }
-       /* Lambda
+        Lambda
        this.repository.findOne(id).orElseThrow(
-                () -> new LoggingStoreNotFoundException(id));*/
-    }
+                () -> new LoggingStoreNotFoundException(id));
+    }*/
 
-    @JsonSerialize
-    private class EmptyJsonResponse {
-    }
+
 }

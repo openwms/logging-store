@@ -69,12 +69,29 @@ WARNING: $  curl -X POST localhost:8080/shutdown
 `
 
 == Source Code
-=== RestController
+=== LoggingStoreController
 [source,java]
-.RestController
+.POST
 ----
-include::{sourcedir}/ch/keepcalm/web/controller/LoggingRestController.java[tags=contains,indent=0]
+include::{sourcedir}/ch/keepcalm/web/controller/LoggingStoreController.java[tags=post,indent=0]
 ----
+.GET
+----
+include::{sourcedir}/ch/keepcalm/web/controller/LoggingStoreController.java[tags=getall,indent=0]
+----
+.GET ONE
+----
+include::{sourcedir}/ch/keepcalm/web/controller/LoggingStoreController.java[tags=getone,indent=0]
+----
+
+
+=== LoggingStoreAndLink
+.LoggingStoreAndLink
+----
+include::{sourcedir}/ch/keepcalm/web/controller/LoggingStoreAndLink.java[tags=loggingStoreAndLinks,indent=0]
+----
+
+
 
 
 == Post a log Message

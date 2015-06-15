@@ -14,7 +14,6 @@
     <link rel="styleSheet" href="../css/custom.css"/>
 
 
-
     <style>
         .navbar-holder-dark {
             padding: 20px 20px 200px 20px;
@@ -150,33 +149,28 @@
                     <div class="panel-heading">Database</div>
                     <div class="panel-body">
                         <ul>
-                            <li>database: {{healthClient.db.database}}</li>
-                            <li>status: {{healthClient.status}}</li>
-                            <li>free disk space: {{healthClient.diskSpace.free}}</li>
-                            <li>record count: {{getAllRecords()}}</li>
+                            <li>database: <b>{{healthClient.db.database}}</b></li>
+                            <li>status: <b>{{healthClient.status}}</b></li>
+                            <li>free disk space: <b>{{healthClient.diskSpace.free}}</b></li>
+                            <li><i>logging-store</i> record count: <b>{{recordsCount()}}</b></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- http://angular-ui.github.io/ng-grid/ -->
-        <div class="col-md-12">
-                <h5 class="mb-2">Logging Store <span class="badge">{{recordsCount()}}</span></h5>
-                <div class="col-md-12 gridStyle " ng-grid="gridOptions"></div>
-        </div>
-
-
 
         <div class="col-md-12">
             <div>
                 <h5 class="mb-2">Logging Store <span class="badge">{{recordsCount()}}</span></h5>
-                <table class="table table-striped table-responsive">
+
+                <!-- Start Log-Storage Table -->
+                <table class="table table-striped table-responsive table-hover dt-responsive " cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th>
                             <a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse">
-                                ID
+                                <b>ID</b>
                                 <span ng-show="sortType == 'id' && !sortReverse"
                                       class="glyphicon glyphicon-chevron-down"></span>
                                 <span ng-show="sortType == 'id' && sortReverse"
@@ -185,7 +179,7 @@
                         </th>
                         <th>
                             <a href="#" ng-click="sortType = 'timestamp'; sortReverse = !sortReverse">
-                                Timestamp
+                                <b>Timestamp</b>
                                 <span ng-show="sortType == 'timestamp' && !sortReverse"
                                       class="glyphicon glyphicon-chevron-down"></span>
                                 <span ng-show="sortType == 'timestamp' && sortReverse"
@@ -194,7 +188,7 @@
                         </th>
                         <th>
                             <a href="#" ng-click="sortType = 'clientApplikation'; sortReverse = !sortReverse">
-                                Applikation<br/>Name
+                                <b>Name</b>
                                 <span ng-show="sortType == 'clientApplikation' && !sortReverse"
                                       class="glyphicon glyphicon-chevron-down"></span>
                                 <span ng-show="sortType == 'clientApplikation' && sortReverse"
@@ -203,7 +197,7 @@
                         </th>
                         <th>
                             <a href="#" ng-click="sortType = 'clientVersion'; sortReverse = !sortReverse">
-                                Application<br/> Version
+                                <b>Version</b>
                                 <span ng-show="sortType == 'clientVersion' && !sortReverse"
                                       class="glyphicon glyphicon-chevron-down"></span>
                                 <span ng-show="sortType == 'clientVersion' && sortReverse"
@@ -212,7 +206,7 @@
                         </th>
                         <th>
                             <a href="#" ng-click="sortType = 'debugInformation'; sortReverse = !sortReverse">
-                                Debug<br/>Information
+                                <b>Debug</b>
                                 <span ng-show="sortType == 'debugInformation' && !sortReverse"
                                       class="glyphicon glyphicon-chevron-down"></span>
                                 <span ng-show="sortType == 'debugInformation' && sortReverse"
@@ -221,7 +215,7 @@
                         </th>
                         <th>
                             <a href="#" ng-click="sortType = 'faultCode'; sortReverse = !sortReverse">
-                                Fault<br/>Code
+                                <b>Fault Code</b>
                                 <span ng-show="sortType == 'faultCode' && !sortReverse"
                                       class="glyphicon glyphicon-chevron-down"></span>
                                 <span ng-show="sortType == 'faultCode' && sortReverse"
@@ -230,7 +224,7 @@
                         </th>
                         <th>
                             <a href="#" ng-click="sortType = 'faultMessage'; sortReverse = !sortReverse">
-                                Fault<br/>Message
+                                <b>Fault Message</b>
                                 <span ng-show="sortType == 'faultMessage' && !sortReverse"
                                       class="glyphicon glyphicon-chevron-down"></span>
                                 <span ng-show="sortType == 'faultMessage' && sortReverse"
@@ -239,7 +233,7 @@
                         </th>
                         <th>
                             <a href="#" ng-click="sortType = 'faultType'; sortReverse = !sortReverse">
-                                Fault<br/>Type
+                               <b>Fault Type</b>
                                 <span ng-show="sortType == 'faultType' && !sortReverse"
                                       class="glyphicon glyphicon-chevron-down"></span>
                                 <span ng-show="sortType == 'faultType' && sortReverse" class="fa fa-caret-up"></span>
@@ -247,7 +241,7 @@
                         </th>
                         <th>
                             <a href="#" ng-click="sortType = 'severity'; sortReverse = !sortReverse">
-                                Log<br/>Severity
+                                <b>Severity</b>
                                 <span ng-show="sortType == 'severity' && !sortReverse"
                                       class="glyphicon glyphicon-chevron-down"></span>
                                 <span ng-show="sortType == 'severity' && sortReverse"
@@ -256,7 +250,7 @@
                         </th>
                         <th>
                             <a href="#" ng-click="sortType = 'correlationId'; sortReverse = !sortReverse">
-                                Correlation ID
+                                <b>Correlation</b>
                                 <span ng-show="sortType == 'correlationId' && !sortReverse"
                                       class="glyphicon glyphicon-chevron-down	"></span>
                                 <span ng-show="sortType == 'correlationId' && sortReverse"
@@ -265,7 +259,7 @@
                         </th>
                         <th>
                             <a href="#" ng-click="sortType = 'detail'; sortReverse = !sortReverse">
-                                Detail
+                                <b>Detail</b>
                                 <span ng-show="sortType == 'detail' && !sortReverse"
                                       class="glyphicon glyphicon-chevron-down	"></span>
                                 <span ng-show="sortType == 'detail' && sortReverse"
@@ -276,44 +270,45 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="store in loggingStore | orderBy:sortType:sortReverse | filter:searchLog">
-                        <td style="word-wrap: break-word;min-width: 40px;max-width: 50px;white-space:normal;">
+                        <td style="min-width: 50px;max-width: 50px">
                             {{store.id}}
                         </td>
-                        <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
+                        <td>
                             {{store.timestamp}}
                         </td>
-                        <td style="word-wrap: break-word;min-width: 20px;max-width: 20px;white-space:normal;">
-                            {{store.clientApplikation}}
+                        <td style="word-wrap: break-word;min-width: 80px;max-width: 80px;white-space:normal;">
+                            {{store.clientApplication}}
                         </td>
-                        <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
+                        <td style="word-wrap: break-word;min-width: 80px;max-width: 80px;white-space:normal;">
                             {{store.clientVersion}}
                         </td>
-                        <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
+                        <td>
                             {{store.debugInformation}}
                         </td>
-                        <td style="word-wrap: break-word;min-width: 20px;max-width: 20px;white-space:normal;">
+                        <td>
                             {{store.faultCode}}
                         </td>
-                        <td style="word-wrap: break-word;min-width: 200px;max-width: 200px;white-space:normal;">
+                        <td>
                             {{store.faultMessage}}
                         </td>
-                        <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
+                        <td>
                             {{store.faultType}}
                         </td>
-                        <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
+                        <td style="word-wrap: break-word;min-width: 90px;max-width: 100px;white-space:normal;">
                             {{store.severity}}
                         </td>
-                        <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
+                        <td style="min-width: 110px;max-width: 110px;">
                             {{store.correlationId}}
                         </td>
-                        <td style="word-wrap: break-word;min-width: 119px;max-width: 119px;white-space:normal;">
-                            <a href="{{store.detail}}" target="_blank">{{store.detail}}</a>
+                        <td style="min-width: 70px;max-width: 70px;">
+                            <a href="{{store.detail}}" target="_blank">deatil</a>
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+        <!-- End Log-Storage Table -->
 
 
 
@@ -340,7 +335,6 @@
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="../bower_components/ng-table/dist/ng-table.min.js"></script>
     <script src="../bower_components/ui-grid/build/ng-grid.min.js"></script>
-
 
 
     <!-- Appliction -->

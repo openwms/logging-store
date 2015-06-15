@@ -164,7 +164,7 @@
                         </attributes>
                     </configuration>
                     <executions>
-                        <execution>
+                       <!-- <execution>
                             <id>generate-pdf-doc</id>
                             <phase>generate-resources</phase>
                             <goals>
@@ -174,11 +174,11 @@
                                 <backend>pdf</backend>
                                 <sourceHighlighter>coderay</sourceHighlighter>
                                 <attributes>
-                                    <!--
+                                    &lt;!&ndash;
                                     WARNING: The font necessary to support font-based icons is missing in AsciidoctorJ PDF 1.5.0-alpha.7.
                                     See https://github.com/asciidoctor/asciidoctorj/issues/330 for details.
                                     <icons>font</icons>
-                                    -->
+                                    &ndash;&gt;
                                     <pagenums />
                                     <toc />
                                     <idprefix />
@@ -186,7 +186,7 @@
                                     <imagesdir>./images</imagesdir>
                                 </attributes>
                             </configuration>
-                        </execution>
+                        </execution>-->
 
                         <execution>
                             <id>asciidoc-to-html</id>
@@ -258,7 +258,7 @@
                                 </attributes>
                             </configuration>
                         </execution>
-                        <execution>
+                       <!-- <execution>
                             <id>output-docbook</id>
                             <phase>generate-resources</phase>
                             <goals>
@@ -268,7 +268,7 @@
                                 <backend>docbook</backend>
                                 <doctype>book</doctype>
                             </configuration>
-                        </execution>
+                        </execution>-->
                     </executions>
                 </plugin>
                 <!--

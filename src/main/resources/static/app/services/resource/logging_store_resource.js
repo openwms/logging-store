@@ -23,11 +23,8 @@ angular.module('myApp.services', [])
                         loggingStore.faultType = item.loggingStore.faultType;
                         loggingStore.severity = item.loggingStore.severity;
                         loggingStore.correlationId = item.loggingStore.correlationId;
-
                         loggingStore.detail = item.link.href;
-
-
-                        console.log("push : ", loggingStore);
+                        //console.log("push : ", loggingStore);
                         models.push(loggingStore);
                     });
                     return models;

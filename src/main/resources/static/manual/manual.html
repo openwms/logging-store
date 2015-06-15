@@ -532,7 +532,8 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#shutdown-the-application">Shutdown the Application</a></li>
 <li><a href="#source-code">Source Code</a>
 <ul class="sectlevel2">
-<li><a href="#restcontroller">RestController</a></li>
+<li><a href="#loggingstorecontroller">LoggingStoreController</a></li>
+<li><a href="#loggingstoreandlink">LoggingStoreAndLink</a></li>
 </ul>
 </li>
 <li><a href="#post-a-log-message">Post a log Message</a>
@@ -685,15 +686,56 @@ $  curl -X POST localhost:8080/shutdown
 <h2 id="source-code"><a class="anchor" href="#source-code"></a>Source Code</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="restcontroller"><a class="anchor" href="#restcontroller"></a>RestController</h3>
+<h3 id="loggingstorecontroller"><a class="anchor" href="#loggingstorecontroller"></a>LoggingStoreController</h3>
 <div class="listingblock">
-<div class="title">RestController</div>
+<div class="title">POST</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@RequestMapping</span>(method = RequestMethod.POST)
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@RequestMapping</span>(value = <span class="string"><span class="delimiter">&quot;</span><span class="content">/log</span><span class="delimiter">&quot;</span></span>, method = RequestMethod.POST)
 <span class="directive">public</span> ResponseEntity log(<span class="annotation">@Valid</span> <span class="annotation">@RequestBody</span> LoggingStore loggingStore) {
     repository.saveAndFlush(loggingStore);
     <span class="keyword">return</span> <span class="keyword">new</span> ResponseEntity(<span class="keyword">new</span> EmptyJsonResponse(), HttpStatus.CREATED);
 }</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">GET</div>
+<div class="content">
+<pre>@RequestMapping(value = "/log/", method = RequestMethod.GET)
+public List&lt;LoggingStoreAndLink&gt; redLogs() {
+    List&lt;LoggingStoreAndLink&gt; loggingStoreAndLinks = new ArrayList&lt;LoggingStoreAndLink&gt;();
+
+    for (LoggingStore loggingStore : repository.findAll()) {
+        loggingStoreAndLinks.add( new LoggingStoreAndLink(loggingStore));
+    }
+    return  loggingStoreAndLinks;
+}</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">GET ONE</div>
+<div class="content">
+<pre>@RequestMapping(value = "/log/{id}", method = RequestMethod.GET)
+public LoggingStore getLoggingStore(@PathVariable Long id) {
+    //this.validateLog(id);
+    // look up releated templat
+    LoggingStore one = repository.findOne(id);
+    // TODO
+    return one;
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="loggingstoreandlink"><a class="anchor" href="#loggingstoreandlink"></a>LoggingStoreAndLink</h3>
+<div class="listingblock">
+<div class="title">LoggingStoreAndLink</div>
+<div class="content">
+<pre>public LoggingStoreAndLink(LoggingStore loggingStore) {
+    this.loggingStore = loggingStore;
+    this.link = linkTo(methodOn(LoggingStoreController.class).getLoggingStore(loggingStore.getId()))
+            .withRel(loggingStore.getId() + " " + loggingStore.getCorrelationId());
+    /*this.link = linkTo(LoggingStoreController.class).slash(loggingStore.getId()).withSelfRel();*/
+}</pre>
 </div>
 </div>
 </div>
@@ -811,7 +853,7 @@ $  curl -X POST localhost:8080/shutdown
 <div id="footer">
 <div id="footer-text">
 Version 1.0.1-SNAPSHOT<br>
-Last updated 2015-06-13 00:33:50 CEST
+Last updated 2015-06-15 20:42:08 CEST
 </div>
 </div>
 </body>

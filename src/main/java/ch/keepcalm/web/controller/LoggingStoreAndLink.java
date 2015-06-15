@@ -14,12 +14,14 @@ public class LoggingStoreAndLink {
     private final LoggingStore loggingStore;
     private final Link link;
 
+    // tag::loggingStoreAndLinks[]
     public LoggingStoreAndLink(LoggingStore loggingStore) {
         this.loggingStore = loggingStore;
         this.link = linkTo(methodOn(LoggingStoreController.class).getLoggingStore(loggingStore.getId()))
                 .withRel(loggingStore.getId() + " " + loggingStore.getCorrelationId());
         /*this.link = linkTo(LoggingStoreController.class).slash(loggingStore.getId()).withSelfRel();*/
     }
+    // end::loggingStoreAndLinks[]
 
     public LoggingStore getLoggingStore(){
         return loggingStore;

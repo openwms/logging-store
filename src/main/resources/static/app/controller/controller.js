@@ -12,7 +12,10 @@ angular.module('myApp.controllers', [])
             data: 'loggingStore'
         };
 
-        $scope.mySelections = [];
+
+        //https://github.com/angular-ui/ng-grid/wiki/Defining-columns
+        //http://angular-ui.github.io/ng-grid/
+       /* $scope.mySelections = [];
         $scope.gridOptions = {
             data: 'loggingStore',
             columnDefs: [
@@ -30,7 +33,7 @@ angular.module('myApp.controllers', [])
             ],
             selectedItems: $scope.mySelections,
             multiSelect: false
-        };
+        };*/
         //https://github.com/angular-ui/ng-grid/wiki/Defining-columns
         //http://angular-ui.github.io/ng-grid/
 
@@ -44,8 +47,9 @@ angular.module('myApp.controllers', [])
         $scope.infoClient = InfoClient.get();
         // get application health
         $scope.healthClient = HealthClient.get();
-
+        // get application environemt
         $scope.envClient = EnvClient.get();
+        // get application profiles
         $scope.envProfile = $scope.envClient.profiles;
     });
 

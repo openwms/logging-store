@@ -164,8 +164,9 @@
             <div>
                 <h5 class="mb-2">Logging Store <span class="badge">{{recordsCount()}}</span></h5>
 
+
                 <!-- Start Log-Storage Table -->
-                <table class="table table-striped table-responsive table-hover dt-responsive " cellspacing="0" width="100%">
+                <table class="table table-striped table-responsive table-hover dt-responsive " cellspacing="0" width="100%" ng-show="recordsCount() !== 0">
                     <thead>
                     <tr>
                         <th>

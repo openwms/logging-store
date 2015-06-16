@@ -306,7 +306,8 @@
                     </tr>
                     </tbody>
                 </table>
-                <pagination total-items="totalItems" max-size="maxSize" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged(currentPage)" ng-show="recordsCount() !== 0"></pagination>
+                <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" ng-show="recordsCount() !== 0"></pagination>
+                <!--<pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" items-per-page="itemsPerPage"  ng-change="pageChanged(currentPage)" ng-show="recordsCount() !== 0"></pagination>-->
             </div>
         </div>
         <!-- End Log-Storage Table -->

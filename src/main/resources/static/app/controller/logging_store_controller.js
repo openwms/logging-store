@@ -38,4 +38,6 @@ angular.module('myApp.controllers', [])
         $scope.envClient = EnvClient.get();
         // get application profiles
         $scope.envProfile = $scope.envClient.profiles;
+
+
     });

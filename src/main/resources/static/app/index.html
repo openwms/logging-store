@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../eden-ui/skins/eden.css" media="screen">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../eden-ui/css/animate.css">
-    <link rel="styleSheet" href="../bower_components/ui-grid/ng-grid.min.css"/>
     <link rel="styleSheet" href="../css/custom.css"/>
 
 
@@ -270,7 +269,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="store in loggingStore | orderBy:sortType:sortReverse | filter:searchLog">
+                    <tr ng-repeat="store in filteredLoggingStore | orderBy:sortType:sortReverse | filter:searchLog">
                         <td style="min-width: 50px;max-width: 50px">
                             {{store.id}}
                         </td>
@@ -302,11 +301,12 @@
                             {{store.correlationId}}
                         </td>
                         <td style="min-width: 70px;max-width: 70px;">
-                            <a href="{{store.detail}}" target="_blank">deatil</a>
+                            <a href="{{store.detail}}" target="_blank">detail</a>
                         </td>
                     </tr>
                     </tbody>
                 </table>
+                <pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged(currentPage)" ng-show="recordsCount() !== 0"></pagination>
             </div>
         </div>
         <!-- End Log-Storage Table -->
@@ -336,11 +336,15 @@
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="../bower_components/ng-table/dist/ng-table.min.js"></script>
     <script src="../bower_components/ui-grid/build/ng-grid.min.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+
 
 
     <!-- Appliction -->
     <script src="app.js"></script>
-    <script src="controller/controller.js"></script>
+    <script src="controller/logging_store_controller.js"></script>
     <script src="services/resource/logging_store_resource.js"></script>
     <script src="services/resource/info_resource.js"></script>
     <script src="services/resource/health_resource.js"></script>

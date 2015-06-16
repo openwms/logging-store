@@ -6,25 +6,19 @@
     <title>Logging-Store</title>
 </head>
 
-<!--
-<body class="bgimg">
--->
 <body>
 <div th:fragment="content" class="container">
     <div class="container" align="center">
 
-        <!--<h1><font color="#f0ffff">Please sign in</font> </h1>-->
         <h1>Please sign in</h1>
         <div th:if="${param.error == null and param.logout == null}">
             &nbsp;
         </div>
         <div th:if="${param.error}">
-          <!-- <font color="#bc8f8f" >Invalid username and password.</font>-->
-            <font color="#8b0000" >Invalid username and password.</font>
+            <font color="#8b0000" size="2px">Invalid username and password.</font>
         </div>
         <div th:if="${param.logout}">
-            <!--<font color="#7fffd4">You have been logged out.</font>-->
-            <font color="#228b22">You have been logged out.</font>
+            <font color="#228b22" size="2px">You have been logged out.</font>
         </div>
 
         <form login-page='@{/login}'

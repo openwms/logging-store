@@ -16,7 +16,8 @@ angular.module('myApp.controllers', [])
 
         // Paginator
         $scope.currentPage = 1;
-        $scope.itemsPerPage = 5;
+        $scope.itemsPerPage = 2;
+        $scope.maxSize =6;
         /*
         $scope.pageCount = function () {
             return Math.ceil($scope.allStoreItems.length / $scope.itemsPerPage);

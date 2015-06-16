@@ -7,9 +7,7 @@ angular.module('myApp.controllers', [])
         $scope.searchLog = '';     // set the default search/filter term
 
         // GET ALL
-        $scope.allStoreItems = LoggingStoreClient.query(null, null, function (response) {
-            console.log("ERROR: " + response);
-        });
+        $scope.allStoreItems = LoggingStoreClient.query();
 
         // Record Count
         $scope.recordsCount = function () {

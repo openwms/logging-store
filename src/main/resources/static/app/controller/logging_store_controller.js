@@ -7,25 +7,23 @@ angular.module('myApp.controllers', [])
         $scope.searchLog = '';     // set the default search/filter term
 
         // GET ALL
-        $scope.allStoreItems = LoggingStoreClient.query();
+        $scope.allStoreItems = LoggingStoreClient.query(null, null, function (response) {
+            console.log("ERROR: " + response);
+        });
 
         // Record Count
         $scope.recordsCount = function () {
             return $scope.allStoreItems.length;
         };
 
+
         // Paginator
         $scope.currentPage = 1;
-        $scope.itemsPerPage = 2;
-        $scope.maxSize =6;
-        /*
-        $scope.pageCount = function () {
-            return Math.ceil($scope.allStoreItems.length / $scope.itemsPerPage);
-        };
-        */
+        $scope.itemsPerPage = 10;
+        $scope.maxSize = 4;
         $scope.allStoreItems.$promise.then(function () {
             $scope.totalItems = $scope.allStoreItems.length;
-            $scope.$watch('currentPage + itemsPerPage', function() {
+            $scope.$watch('currentPage + itemsPerPage', function () {
                 var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
                     end = begin + $scope.itemsPerPage;
 
@@ -43,9 +41,3 @@ angular.module('myApp.controllers', [])
         // get application profiles
         $scope.envProfile = $scope.envClient.profiles;
     });
-/**
- *
- * @constructor
- */
-function LoggingStore() {
-}

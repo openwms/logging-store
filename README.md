@@ -1,4 +1,6 @@
 # logging-store
+
+[![Join the chat at https://gitter.im/marzelwidmer/logging-store](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/marzelwidmer/logging-store?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Codacy status][codacy-image]][codacy-url]
 [![Build status][travis-image]][travis-url]
 [![License][license-image]][license-url]

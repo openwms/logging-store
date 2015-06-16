@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 
 /**
  * Created by marcelwidmer on 05/06/15.
- *
+ * <p/>
  * Only the POST request is permitted for anonymous.
  */
 @Configuration
@@ -33,17 +33,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers(HttpMethod.POST, "/services/rest/log").permitAll()
+                .antMatchers(HttpMethod.POST, "/services/rest/**").permitAll()
                 .anyRequest().authenticated()
-                .and().formLogin().loginPage("/login").permitAll()
-                .and().logout().permitAll();
-        http.formLogin().defaultSuccessUrl("/app/index.html");
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll()
+                .and()
+                .formLogin()
+                .defaultSuccessUrl("/app/index.html");
     }
-
 
     @Autowired
     protected void configureDatabaseAuthenticationDevProfile(AuthenticationManagerBuilder auth, Environment env) throws Exception {
-        if (env.acceptsProfiles("dev")){
+        if (env.acceptsProfiles("dev")) {
             log.info("Setting up memory-based authentication for dev");
             auth.inMemoryAuthentication().withUser("mrlog").password("password").roles("USER");
         }
@@ -51,8 +57,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     protected void configureDatabaseAuthentication(AuthenticationManagerBuilder auth, Environment env) throws Exception {
-        if (env.acceptsProfiles("test", "integration", "preproduction", "production")){
-            log.info("Setting up database authentication for development, test, integration, preproduction, production" );
+        if (env.acceptsProfiles("test", "integration", "preproduction", "production")) {
+            log.info("Setting up database authentication for development, test, integration, preproduction, production");
 
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -61,6 +67,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         }
     }
-
-
 }

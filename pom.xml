@@ -2,31 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ch.keepcalm.web</groupId>
-    <artifactId>logging-store</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
-
-    <name>logging-store</name>
-    <description>Logging Store</description>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.2.4.RELEASE</version>
-        <relativePath />
-        <!-- lookup parent from repository -->
     </parent>
+
+    <groupId>ch.keepcalm.web</groupId>
+    <artifactId>logging-store</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
 
     <scm>
         <connection>ssh://git@msswlmp01.ads.hel.kko.ch:7999/ser/logging-store.git</connection>
         <developerConnection>ssh://git@msswlmp01.ads.hel.kko.ch:7999/ser/logging-store.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
-    
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <start-class>ch.keepcalm.web.LoggingStoreApplication</start-class>
         <java.version>1.7</java.version>
         <asciidoctor.maven.plugin.version>1.5.2</asciidoctor.maven.plugin.version>
@@ -37,10 +30,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -88,7 +77,19 @@
             <artifactId>asciidoctorj</artifactId>
             <version>1.5.0</version>
         </dependency>
+        <dependency>
+            <groupId>ch.abraxas</groupId>
+            <artifactId>ameba-lib</artifactId>
+            <version>0.4</version>
+        </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>bintray-abraxas-labs</id>
+            <snapshots><enabled>false</enabled></snapshots>
+            <url>http://dl.bintray.com/abraxas/labs</url>
+        </repository>
+    </repositories>
 
     <build>
             <!-- Used for Nexus Upload -->

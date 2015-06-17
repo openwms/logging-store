@@ -1,13 +1,18 @@
 package ch.keepcalm.web.model;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * faultTyp :
@@ -50,19 +55,12 @@ import java.util.Date;
 @Entity
 public class LoggingStore implements Serializable {
 
-
-    private static final long serialVersionUID = 5873356508976710835L;
-
-    /*@Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    private String id;*/
     @Id
     @GeneratedValue
     private Long id;
 
+    @NotNull
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "TIMESTAMP", nullable = false)
     private Date timestamp;
 
 
@@ -72,7 +70,6 @@ public class LoggingStore implements Serializable {
             @Size(min = 1),
             @Size(max = 30)
     })
-    @Column(name = "CLIENT_APPLIKATION")
     private String clientApplikation;
 
 
@@ -82,7 +79,6 @@ public class LoggingStore implements Serializable {
             @Size(min = 1),
             @Size(max = 1024)
     })
-    @Column(name = "CLIENT_VERSION")
     private String clientVersion;
 
     @NotEmpty
@@ -91,7 +87,6 @@ public class LoggingStore implements Serializable {
             @Size(min = 1),
             @Size(max = 4000)
     })
-    @Column(name = "DEBUG_INFORMATION")
     private String debugInformation;
 
     @NotEmpty
@@ -100,13 +95,11 @@ public class LoggingStore implements Serializable {
             @Size(min = 1),
             @Size(max = 256)
     })
-    @Column(name = "FAULT_CODE")
     private String faultCode;
 
     @NotEmpty
     @NotNull
     @Size(min = 1, max = 4000)
-    @Column(name = "FAULT_MESSAGE")
     private String faultMessage;
 
     /**
@@ -119,7 +112,6 @@ public class LoggingStore implements Serializable {
             @Size(max = 64)
     })
     @Pattern(regexp = "\\bDATEN\\b|\\bSYSTEM_SOFT\\b|\\bSYSTEM_SOFT_KOMPATIBILITAET\\b|\\bSYSTEM_SOFT_SCHEMA\\b|\\bSYSTEM_UMGEBUNG\\b")
-    @Column(name = "FAULT_TYPE")
     private String faultType;
 
     /**
@@ -132,7 +124,6 @@ public class LoggingStore implements Serializable {
             @Size(max = 64)
     })
     @Pattern(regexp = "\\bDEBUG\\b|\\bINFO\\b|\\bERROR\\b|\\bWARNING\\b")
-    @Column(name = "SEVERITY")
     private String severity;
 
 
@@ -142,7 +133,6 @@ public class LoggingStore implements Serializable {
             @Size(min = 1),
             @Size(max = 64)
     })
-    @Column(name = "CORRELATION_ID")
     private String correlationId;
 
 
@@ -151,22 +141,8 @@ public class LoggingStore implements Serializable {
         timestamp = new Date();
     }
 
-
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
-
-
     public void setClientVersion(String clientVersion) {
         this.clientVersion = clientVersion;
-    }
-
-    public String getClientApplikation() {
-        return clientApplikation;
     }
 
     public void setClientApplikation(String clientApplikation) {
@@ -181,44 +157,20 @@ public class LoggingStore implements Serializable {
         this.id = id;
     }
 
-    public String getClientVersion() {
-        return clientVersion;
-    }
-
-    public String getDebugInformation() {
-        return debugInformation;
-    }
-
     public void setDebugInformation(String debugInformation) {
         this.debugInformation = debugInformation;
-    }
-
-    public String getFaultCode() {
-        return faultCode;
     }
 
     public void setFaultCode(String faultCode) {
         this.faultCode = faultCode;
     }
 
-    public String getFaultMessage() {
-        return faultMessage;
-    }
-
     public void setFaultMessage(String faultMessage) {
         this.faultMessage = faultMessage;
     }
 
-    public String getFaultType() {
-        return faultType;
-    }
-
     public void setFaultType(String faultType) {
         this.faultType = faultType;
-    }
-
-    public String getSeverity() {
-        return severity;
     }
 
     public void setSeverity(String severity) {
@@ -231,5 +183,40 @@ public class LoggingStore implements Serializable {
 
     public void setCorrelationId(String correlationId) {
         this.correlationId = correlationId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        LoggingStore that = (LoggingStore) o;
+
+        if (timestamp != null ? !timestamp.equals(that.timestamp) : that.timestamp != null) return false;
+        if (clientApplikation != null ? !clientApplikation.equals(that.clientApplikation) : that.clientApplikation != null)
+            return false;
+        if (clientVersion != null ? !clientVersion.equals(that.clientVersion) : that.clientVersion != null)
+            return false;
+        if (debugInformation != null ? !debugInformation.equals(that.debugInformation) : that.debugInformation != null)
+            return false;
+        if (faultCode != null ? !faultCode.equals(that.faultCode) : that.faultCode != null) return false;
+        if (faultMessage != null ? !faultMessage.equals(that.faultMessage) : that.faultMessage != null) return false;
+        if (faultType != null ? !faultType.equals(that.faultType) : that.faultType != null) return false;
+        if (severity != null ? !severity.equals(that.severity) : that.severity != null) return false;
+        return !(correlationId != null ? !correlationId.equals(that.correlationId) : that.correlationId != null);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = timestamp != null ? timestamp.hashCode() : 0;
+        result = 31 * result + (clientApplikation != null ? clientApplikation.hashCode() : 0);
+        result = 31 * result + (clientVersion != null ? clientVersion.hashCode() : 0);
+        result = 31 * result + (debugInformation != null ? debugInformation.hashCode() : 0);
+        result = 31 * result + (faultCode != null ? faultCode.hashCode() : 0);
+        result = 31 * result + (faultMessage != null ? faultMessage.hashCode() : 0);
+        result = 31 * result + (faultType != null ? faultType.hashCode() : 0);
+        result = 31 * result + (severity != null ? severity.hashCode() : 0);
+        result = 31 * result + (correlationId != null ? correlationId.hashCode() : 0);
+        return result;
     }
 }
